@@ -1,0 +1,3 @@
+[submodule "src/js/lib/asus-analytics"]
+	path = src/js/lib/asus-analytics
+	url = git://github.com/ASUS-US/ASUS-Analytics.git

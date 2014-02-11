@@ -83,15 +83,3 @@ $modules: () !default;
   }
   @return $remValues;
 }
-
-// OLD EM CALC
-// Deprecated: We'll drop support for this in 5.1.0, use rem-calc()
-@function emCalc($values){
-  @return rem-calc($values);
-}
-
-// OLD EM CALC
-// Deprecated: We'll drop support for this in 5.1.0, use rem-calc()
-@function em-calc($values){
-  @return rem-calc($values);
-}

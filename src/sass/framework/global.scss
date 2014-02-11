@@ -19,6 +19,6 @@ body {
   font-family: $body-font-family;
   font-weight: $body-font-weight;
   font-style: $body-font-style;
-  line-height: 1; // Set to $base-line-height to take on browser default of 150%
+  line-height: $body-line-height;
   position: relative;
 }

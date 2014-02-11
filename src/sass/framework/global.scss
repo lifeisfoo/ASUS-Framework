@@ -1,14 +1,15 @@
-html, body { height: 100%; }
-
 // Set box-sizing globally to handle padding and border widths
 *,
 *:before,
 *:after {
-  @include box-sizing(border-box);
+  box-sizing: border-box;
 }
 
 html,
-body { font-size: $base-font-size; }
+body { 
+  height: 100%;
+  font-size: $base-font-size;
+}
 
 // Default body styles
 body {
@@ -19,6 +20,31 @@ body {
   font-family: $body-font-family;
   font-weight: $body-font-weight;
   font-style: $body-font-style;
-  line-height: $body-line-height;
+  line-height: $base-line-height;
   position: relative;
 }
+
+// Grid Defaults to get images and embeds to work properly
+img,
+object,
+embed { max-width: 100%; height: auto; }
+
+object,
+embed { height: 100%; }
+img { -ms-interpolation-mode: bicubic; }
+
+// Get rid of gap under images by making them display: inline-block; by default
+img {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+//
+// Global resets for forms
+//
+
+// Make sure textarea takes on height automatically
+textarea { height: auto; min-height: 50px; }
+
+// Make select elements 100% width by default
+select { width: 100%; }

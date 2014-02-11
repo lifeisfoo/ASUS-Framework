@@ -52,10 +52,9 @@ $xxlarge-only: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)}) and (m
 $body-bg: $white;
 $text-color: $black;
 
-$font-size-base: 16px !default;
-$line-height-base: 1.25 !default;
+$base-font-size: 100% !default;
+$base-line-height: 1.25 !default;
 
 $body-font-family: 'Open Sans', sans-serif !default;
 $body-font-weight: 400 !default;
-$body-font-style: "normal" !default;
-$body-line-height: floor(($font-size-base * $line-height-base)) !default;
+$body-font-style: normal !default;

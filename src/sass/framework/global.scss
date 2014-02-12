@@ -84,7 +84,7 @@ dd {
   .dl-horizontal {
     dt {
       float: left;
-      width: ($form-component-width - 20);
+      width: ($form-component-width - rem-calc(20));
       clear: left;
       text-align: right;
       @include text-overflow();
@@ -99,10 +99,10 @@ dd {
 @media #{$xlarge-up} {
   .dl-horizontal {
     dt {
-      width: ($form-component-width + 80);
+      width: ($form-component-width + rem-calc(80));
     }
     dd {
-      margin-left: ($form-component-width + 100);
+      margin-left: ($form-component-width + rem-calc(100));
     }
   }
 }
@@ -112,7 +112,7 @@ dd {
 blockquote {
   padding: 0.5em 1em;
   margin: 1em 0;
-  border-left: 5px solid $silver;
+  border-left: rem-calc(5) solid $silver;
 
   p,
   ul,

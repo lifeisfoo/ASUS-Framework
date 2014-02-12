@@ -94,4 +94,4 @@ $table-border-color:            darken($silver, 10%) !default;
 
 /*** Buffers & other dimensions ***/
 
-$form-component-width: 180px !default;
+$form-component-width: rem-calc(180) !default;

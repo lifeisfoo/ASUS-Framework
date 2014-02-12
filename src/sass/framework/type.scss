@@ -10,22 +10,6 @@ p {
   margin: 0 0 0.5em;
 }
 
-ul, ol {
-  margin-top: 0;
-  margin-bottom: 0.5em;
-  ul, ol {
-    margin-bottom: 0;
-  }
-}
-
-dl {
-  margin-top: 0;
-  margin-bottom: 0.5em;
-}
-dd {
-  margin-left: 0;
-}
-
 h1 {
   font-size: $paragraph-font-size * 2;
   line-height: $base-line-height;
@@ -121,6 +105,22 @@ h6 {
 
 /* List options */
 
+ul, ol {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  ul, ol {
+    margin-bottom: 0;
+  }
+}
+
+dl {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+dd {
+  margin-left: 0;
+}
+
 .list-unstyled {
   padding-left: 0;
   list-style: none;
@@ -136,7 +136,7 @@ h6 {
   }
 }
 
-@media #{$large-up} {
+@media #{$medium-up} {
   .dl-horizontal {
     dt {
       float: left;
@@ -152,11 +152,22 @@ h6 {
   }
 }
 
+@media #{$xlarge-up} {
+  .dl-horizontal {
+    dt {
+      width: ($form-component-width + 80);
+    }
+    dd {
+      margin-left: ($form-component-width + 100);
+    }
+  }
+}
+
 /* Blockquotes */
 
 blockquote {
   padding: 0.5em 1em;
-  margin: 0 0 1em;
+  margin: 1em 0;
   border-left: 5px solid $silver;
 
   p,

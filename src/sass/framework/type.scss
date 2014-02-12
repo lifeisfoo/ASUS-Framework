@@ -90,7 +90,7 @@ h4, blockquote {
   }
 }
 
-h5, p, li, dt, dd {
+h5, p, li, dt, dd, td, th {
   font-size: $paragraph-font-size;
   line-height: $base-line-height;
   @media #{$small-only} {

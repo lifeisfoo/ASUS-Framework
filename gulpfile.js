@@ -10,9 +10,17 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     notify = require('gulp-notify'),
     cache = require('gulp-cache'),
+    express = require('express'),
     livereload = require('gulp-livereload'),
-    lr = require('tiny-lr'),
-    server = lr();
+    lr = require('tiny-lr')(),
+    server = express(),
+    livereloadport = 35729,
+    serverport = 5000;
+
+server.use(livereload({
+    port: livereloadport
+}));
+server.use(express.static('./dist'));
     
 gulp.task('styles', function() {
   return gulp.src('src/sass/main.scss')
@@ -52,27 +60,28 @@ gulp.task('clean', function() {
     .pipe(clean());
 });
 
+gulp.task('serve', function() {
+  server.listen(serverport);
+ 
+  lr.listen(livereloadport);
+});
+
 gulp.task('default', ['clean'], function() {
     gulp.start('styles', 'scripts', 'images');
 });
 
 gulp.task('watch', function() {
-  
-  // Listen on port 35729
-  server.listen(35729, function (err) {
-    if (err) {
-      return console.log(err)
-    };
 
+    gulp.start('serve');
+  
     // Watch .scss files
     gulp.watch('src/sass/**/*.scss', ['styles']);
-  
+
     // Watch .js files
     gulp.watch('src/js/**/*.js', ['scripts']);
-  
+
     // Watch image files
     gulp.watch('src/img/**/*', ['images']);
 
-  });  
 	
 });

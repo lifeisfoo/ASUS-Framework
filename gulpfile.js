@@ -8,7 +8,6 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     clean = require('gulp-clean'),
     concat = require('gulp-concat'),
-    notify = require('gulp-notify'),
     cache = require('gulp-cache'),
     express = require('express'),
     livereload = require('gulp-livereload'),
@@ -21,7 +20,7 @@ var gulp = require('gulp'),
 server.use(livereload({
     port: livereloadport
 }));
-server.use(express.static('./dist/'));
+server.use(express.static(__dirname + '/dist/'));
     
 gulp.task('styles', function() {
   return gulp.src('src/sass/main.scss')
@@ -31,8 +30,7 @@ gulp.task('styles', function() {
     .pipe(rename({suffix: '.min'}))
     .pipe(minifycss())
     .pipe(gulp.dest('dist/assets/css'))
-    .pipe(livereload(lrserver))
-    .pipe(notify({ message: 'Styles task complete' }));
+    .pipe(livereload(lrserver));
 });
 
 gulp.task('scripts', function() {
@@ -44,16 +42,14 @@ gulp.task('scripts', function() {
     .pipe(rename({suffix: '.min'}))
     .pipe(uglify())
     .pipe(gulp.dest('dist/assets/js'))
-    .pipe(livereload(lrserver))
-    .pipe(notify({ message: 'Scripts task complete' }));
+    .pipe(livereload(lrserver));
 });
 
 gulp.task('images', function() {
   return gulp.src('src/img/**/*')
     .pipe(cache(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true })))
     .pipe(gulp.dest('dist/assets/img'))
-    .pipe(livereload(lrserver))
-    .pipe(notify({ message: 'Images task complete' }));
+    .pipe(livereload(lrserver));
 });
 
 gulp.task('clean', function() {

@@ -485,11 +485,6 @@ th {
     border: 1px solid #ddd !important;
   }
 }
-/*** Colors ***/
-/*** Media Query Ranges ***/
-/*** Typography ***/
-/*** Tables ***/
-/*** Buffers & other dimensions ***/
 *,
 *:before,
 *:after {
@@ -807,11 +802,11 @@ th {
 .table > tfoot > tr > td {
   padding: 8px;
   vertical-align: top;
-  border-top: 1px solid #c4c4c4;
+  border-top: 0.0625rem solid #c4c4c4;
 }
 .table > thead > tr > th {
   vertical-align: bottom;
-  border-bottom: 2px solid #c4c4c4;
+  border-bottom: 0.125rem solid #c4c4c4;
 }
 .table > caption + thead > tr:first-child > th,
 .table > caption + thead > tr:first-child > td,
@@ -822,7 +817,7 @@ th {
   border-top: 0;
 }
 .table > tbody + tbody {
-  border-top: 2px solid #c4c4c4;
+  border-top: 0.125rem solid #c4c4c4;
 }
 .table .table {
   background-color: white;
@@ -838,7 +833,7 @@ th {
 }
 
 .table-bordered {
-  border: 1px solid #c4c4c4;
+  border: 0.0625rem solid #c4c4c4;
 }
 .table-bordered > thead > tr > th,
 .table-bordered > thead > tr > td,
@@ -846,16 +841,16 @@ th {
 .table-bordered > tbody > tr > td,
 .table-bordered > tfoot > tr > th,
 .table-bordered > tfoot > tr > td {
-  border: 1px solid #c4c4c4;
+  border: 0.0625rem solid #c4c4c4;
 }
 .table-bordered > thead > tr > th,
 .table-bordered > thead > tr > td {
-  border-bottom-width: 2px;
+  border-bottom-width: 0.125rem;
 }
 
 .table-striped > tbody > tr:nth-child(odd) > td,
 .table-striped > tbody > tr:nth-child(odd) > th {
-  background-color: #dddddd;
+  background-color: #eaeaea;
 }
 
 .table-hover > tbody > tr:hover > td,

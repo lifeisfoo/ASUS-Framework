@@ -1,4 +1,4 @@
-/*** Colors ***/
+// *** Colors ***
 
 // https://github.com/mrmrs/colors
 $aqua:  #7FDBFF !default;
@@ -21,7 +21,7 @@ $silver: #ddd !default;
 $gray:   #aaa !default;
 $black:  #111 !default;
 
-/*** Media Query Ranges ***/
+// *** Media Query Ranges ***
 
 $small-range: (0em, 40em) !default;
 $medium-range: (40.063em, 64em) !default;
@@ -49,7 +49,7 @@ $xlarge-only: "#{$screen} and (min-width:#{lower-bound($xlarge-range)}) and (max
 $xxlarge-up: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)})" !default;
 $xxlarge-only: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)}) and (max-width:#{upper-bound($xxlarge-range)})" !default;
 
-/*** Typography ***/
+// *** Typography ***
 
 $body-bg: $white;
 $text-color: $black;
@@ -75,7 +75,7 @@ $opposite-direction: right !default;
   $opposite-direction: left;
 }
 
-/*** Tables ***/
+// *** Tables ***
 
 // Customizes the `.table` component with basic values, each used across all table variations.
 // Padding for `<th>`s and `<td>`s.
@@ -85,13 +85,13 @@ $table-condensed-cell-padding:  5px !default;
 // Default background color used for all tables.
 $table-bg:                      transparent !default;
 // Background color used for `.table-striped`.
-$table-bg-accent:               $silver !default;
+$table-bg-accent:               lighten($silver, 5%) !default;
 // Background color used for `.table-hover`.
 $table-bg-hover:                darken($silver, 5%) !default;
 $table-bg-active:               $table-bg-hover !default;
 // Border color for table and cell borders.
 $table-border-color:            darken($silver, 10%) !default;
 
-/*** Buffers & other dimensions ***/
+// *** Buffers & other dimensions ***
 
 $form-component-width: rem-calc(180) !default;

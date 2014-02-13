@@ -3,12 +3,6 @@
   margin-bottom: 1em;
   border: 1px solid transparent;
 
-  // Headings for larger alerts
-  h4 {
-    margin-top: 0;
-    // Specified for the h4 to prevent conflicts of changing $headings-color
-    color: inherit;
-  }
   // Provide class for links that match alerts
   .alert-link {
     font-weight: 600;
@@ -24,15 +18,16 @@
   }
 }
 
+// alert-variant(background, border, text)
 .alert-success {
-  @include alert-variant(lighten($green, 25%), $green, darken($green,15%));
+  @include alert-variant(lighten($green, 30%), $green, $olive);
 }
 .alert-info {
-  @include alert-variant(lighten($aqua, 15%), $aqua, darken($aqua,20%));
+  @include alert-variant(lighten($aqua, 15%), $aqua, $blue);
 }
 .alert-warning {
-  @include alert-variant(lighten($yellow, 25%), $yellow, darken($yellow,15%));
+  @include alert-variant(lighten($yellow, 30%), $yellow, $orange);
 }
 .alert-danger {
-  @include alert-variant(lighten($red, 25%), $red, darken($red,15%));
+  @include alert-variant(lighten($red, 30%), $red, darken($red,15%));
 }

@@ -24,6 +24,3 @@ node_modules
 
 # Sublime
 *.sublime*
-
-# Hide dist files
-dist

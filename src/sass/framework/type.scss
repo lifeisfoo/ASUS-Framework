@@ -103,6 +103,26 @@ h6 {
   }
 }
 
+// Specials
 .heading {
   border-bottom: rem-calc(1) solid $silver;
 }
+
+// Alignment
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.text-center {
+  text-align: center;
+}
+.text-justify {
+  text-align: justify;
+}
+
+// Contextual
+@include text-emphasis-variant('.text-success', $green);
+@include text-emphasis-variant('.text-warning', darken($yellow, 5%));
+@include text-emphasis-variant('.text-danger', $red);

@@ -1,0 +1,35 @@
+.alert {
+  padding: 1em;
+  margin-bottom: 1em;
+  border: 1px solid transparent;
+
+  // Headings for larger alerts
+  h4 {
+    margin-top: 0;
+    // Specified for the h4 to prevent conflicts of changing $headings-color
+    color: inherit;
+  }
+  // Provide class for links that match alerts
+  .alert-link {
+    font-weight: 600;
+  }
+
+  // Improve alignment and spacing of inner content
+  > p,
+  > ul {
+    margin-bottom: 0;
+  }
+  > p + p {
+    margin-top: 5px;
+  }
+}
+
+.alert-success {
+  @include alert-variant(lighten($green, 25%), $green, darken($green,15%));
+}
+.alert-warning {
+  @include alert-variant(lighten($yellow, 25%), $yellow, darken($yellow,15%));
+}
+.alert-danger {
+  @include alert-variant(lighten($red, 25%), $red, darken($red,15%));
+}

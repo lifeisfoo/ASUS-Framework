@@ -27,6 +27,9 @@
 .alert-success {
   @include alert-variant(lighten($green, 25%), $green, darken($green,15%));
 }
+.alert-info {
+  @include alert-variant(lighten($aqua, 15%), $aqua, darken($aqua,20%));
+}
 .alert-warning {
   @include alert-variant(lighten($yellow, 25%), $yellow, darken($yellow,15%));
 }

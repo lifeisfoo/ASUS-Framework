@@ -20,13 +20,13 @@
 
 // alert-variant(background, border, text)
 .alert-success {
-  @include alert-variant(lighten($green, 30%), $olive, $olive);
+  @include alert-variant(lighten($green, 35%), $olive, $olive);
 }
 .alert-info {
   @include alert-variant(lighten($aqua, 15%), $blue, $blue);
 }
 .alert-warning {
-  @include alert-variant(lighten($yellow, 30%), $orange, $orange);
+  @include alert-variant(lighten($yellow, 35%), $orange, $orange);
 }
 .alert-danger {
   @include alert-variant(lighten($red, 30%), $red, darken($red,15%));

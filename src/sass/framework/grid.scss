@@ -2,7 +2,7 @@
 // @variables
 //
 $include-html-grid-classes: true !default;
-$include-xl-html-grid-classes: true !default;
+$include-xl-html-grid-classes: false !default;
 
 $row-width: rem-calc(1020) !default;
 $column-gutter: rem-calc(30) !default;

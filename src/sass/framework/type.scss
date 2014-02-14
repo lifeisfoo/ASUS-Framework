@@ -77,10 +77,6 @@ h4, blockquote {
 h5, p, li, dt, dd, td, th {
   font-size: $paragraph-font-size;
   line-height: $base-line-height;
-  @media #{$small-only} {
-    font-size: $paragraph-font-size * 0.95;
-    line-height: $base-line-height * 1.2;
-  }
   @media #{$xxlarge-up} {
     font-size: $paragraph-font-size * 1.15;
     line-height: $base-line-height * 1.1;

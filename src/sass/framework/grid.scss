@@ -25,6 +25,15 @@ $total-columns: 12 !default;
   }
 }
 
+.wide-load {
+  margin-left: -($column-gutter / 2);
+  margin-right: -($column-gutter / 2);
+  @media #{$small-only} {
+    margin-left: -($column-gutter / 4);
+    margin-right: -($column-gutter / 4);
+  }
+}
+
 // @FUNCTION
 // $colNumber - Found in settings file
 // $totalColumns - Found in settings file

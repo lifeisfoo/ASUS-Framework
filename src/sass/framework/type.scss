@@ -118,6 +118,16 @@ h6 {
   text-align: justify;
 }
 
+// CSS image replacement, used with backgrounds, etc.
+.text-hide {
+  font: #{0/0} a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+
 // Contextual
 @include text-emphasis-variant('.text-success', $green);
 @include text-emphasis-variant('.text-warning', darken($yellow, 5%));

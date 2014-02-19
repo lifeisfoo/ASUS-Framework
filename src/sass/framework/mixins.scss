@@ -20,6 +20,14 @@
   margin-right: auto;
 }
 
+// Vertically centered
+@mixin vertical-center-block() {
+  display: block;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 // Typography
 // -------------------------
 // [converter] $parent hack

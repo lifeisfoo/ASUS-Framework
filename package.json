@@ -1,7 +1,7 @@
 {
   "name": "ASUS-Framework",
   "description": "A mobile-first framework for usage in ASUS latest micro sites. This framework is heavily inspired by twbs/bootstrap as well as zurb/foundation",
-  "version": "0.1.0-beta",
+  "version": "0.2.0-beta",
   "repository": {
     "type": "git",
     "url": "https://github.com/ASUS-US/ASUS-Framework"

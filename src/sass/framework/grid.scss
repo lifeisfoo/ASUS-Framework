@@ -13,15 +13,15 @@ $total-columns: 12 !default;
 //
 
 .container {
-  max-width: ($row-width + ($row-width * 0.04));
+  max-width: ($row-width + $column-gutter);
   margin-left: auto;
   margin-right: auto;
-  padding-left: $row-width * 0.02;
-  padding-right: $row-width * 0.02;
+  padding-left: $column-gutter / 2;
+  padding-right: $column-gutter / 2;
   @include clearfix();
   @media #{$small-only} {
-    padding-left: $row-width * 0.01;
-    padding-right: $row-width * 0.01;
+    padding-left: $column-gutter / 4;
+    padding-right: $column-gutter / 4;
   }
 }
 

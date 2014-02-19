@@ -12,6 +12,19 @@ $total-columns: 12 !default;
 // Grid Functions
 //
 
+.container {
+  max-width: ($row-width + ($row-width * 0.04));
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $row-width * 0.02;
+  padding-right: $row-width * 0.02;
+  @include clearfix();
+  @media #{$small-only} {
+    padding-left: $row-width * 0.01;
+    padding-right: $row-width * 0.01;
+  }
+}
+
 // @FUNCTION
 // $colNumber - Found in settings file
 // $totalColumns - Found in settings file

@@ -46,7 +46,7 @@ img {
 /* Forms */
 
 // Make sure textarea takes on height automatically
-textarea { height: auto; min-height: 50px; }
+textarea { height: auto; min-height: rem-calc(50); }
 
 // Make select elements 100% width by default
 select { width: 100%; }

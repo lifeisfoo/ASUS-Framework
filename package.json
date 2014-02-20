@@ -21,6 +21,5 @@
     "gulp-jshint": "~1.4.0",
     "gulp-cache": "~0.1.1",
     "express": "~3.4.8",
-    "gulp-image-optimization": "~0.1.3"
   }
 }

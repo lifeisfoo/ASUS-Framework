@@ -75,33 +75,6 @@ dd {
   margin-left: 0;
 }
 
-@media #{$medium-up} {
-  .dl-horizontal {
-    dt {
-      float: left;
-      width: ($form-component-width - rem-calc(20));
-      clear: left;
-      text-align: right;
-      @include text-overflow();
-    }
-    dd {
-      margin-left: $form-component-width;
-      @include clearfix();
-    }
-  }
-}
-
-@media #{$xlarge-up} {
-  .dl-horizontal {
-    dt {
-      width: ($form-component-width + rem-calc(80));
-    }
-    dd {
-      margin-left: ($form-component-width + rem-calc(100));
-    }
-  }
-}
-
 /* Blockquotes */
 
 blockquote {

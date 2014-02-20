@@ -9,9 +9,12 @@ $column-gutter: rem-calc(30) !default;
 $total-columns: 12 !default;
 
 //
-// Grid Functions
+// Optional classes to contain the entire document
 //
 
+// .container by itself will simply center the main content and apply a small padding for whitespace around the edges
+// .container.controlled will allow for steps downward until an approximate tablet orientation which helps with some types of designs
+// .wide-load as a child of .container will allow for full screen images and backgrounds
 .container {
   max-width: ($row-width + $column-gutter);
   margin-left: auto;
@@ -23,6 +26,14 @@ $total-columns: 12 !default;
     padding-left: $column-gutter / 4;
     padding-right: $column-gutter / 4;
   }
+  &.controlled {
+    @media #{$medium-only} {
+      max-width: 50em;
+    }
+    @media #{$large-only} {
+      max-width: 63em;
+    }
+  }
 }
 
 .wide-load {
@@ -33,6 +44,10 @@ $total-columns: 12 !default;
     margin-right: -($column-gutter / 4);
   }
 }
+
+//
+// Grid Functions
+//
 
 // @FUNCTION
 // $colNumber - Found in settings file

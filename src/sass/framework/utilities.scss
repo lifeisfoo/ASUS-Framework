@@ -12,6 +12,9 @@
 .center-block {
   @include center-block();
 }
+.vertical-center-block {
+  @include vertical-center-block();
+}
 .pull-right {
   float: right !important;
 }

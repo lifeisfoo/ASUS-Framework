@@ -20,10 +20,18 @@ $(document).ready(function() {
     
     console.log(id + ' is the ID');
     $('.fp-content-parent.on')
-      .removeClass('on')
-      .addClass('off');
-    $(id).removeClass('off').addClass('on');
+      .fadeOut(function(){
+        toggleFadeState($(this));
+      });
+    $(id)
+      .fadeIn(function() {
+        toggleFadeState($(this));
+      });
 
+  }
+
+  function toggleFadeState(context) {
+    $(context).toggleClass('on').toggleClass('off').removeAttr('style');
   }
 
 });

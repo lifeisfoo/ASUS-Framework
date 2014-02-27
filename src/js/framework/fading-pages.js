@@ -11,8 +11,10 @@ $(document).ready(function() {
       return $(this).attr('href');
     }).toArray();
   var first_fp_nav_href = $('.fp-nav:first').attr('href');
+  var pop = false;
 
   window.addEventListener('popstate', function()  {
+    pop = true;
     var current_hash = window.location.hash;
     if (current_hash.length > 0) { // if hash is blank, load default
       hashChange(current_hash);
@@ -20,16 +22,26 @@ $(document).ready(function() {
       hashChange(first_fp_nav_href);
     }
   });
+
+  if (!pop) { // popstate not supported
+    $('.fp-nav').click(function() {
+      if (!$(this).hasClass('active')) {
+        $('.fp-nav.active').removeClass('active');
+        $(this).addClass('active');
+        fadingPages($(this).attr('href'));
+      }
+    });
+  }
   
   function hashChange(url_hash) {
     var current_fp_nav_href = $('.fp-nav.active').attr('href');
     if (isInArray(hash_array,url_hash)) { // make sure the hash is in the array before continuing
-      if (url_hash !== current_fp_nav_href) {
+      if (url_hash !== current_fp_nav_href) { // Don't do anything if we're already on the page
         $('.fp-nav.active').removeClass('active');
         $('a[href="' + url_hash + '"]').addClass('active');
         fadingPages(url_hash);
       }
-    } else {
+    } else { // if we get a bad hash, go back to first page
       $('a[href="' + first_fp_nav_href + '"]').addClass('active');
       fadingPages(first_fp_nav_href);
     }

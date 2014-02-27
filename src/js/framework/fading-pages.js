@@ -22,13 +22,16 @@ $(document).ready(function() {
   });
   
   function hashChange(url_hash) {
+    $('.fp-nav.active').removeClass('active');
     if (isInArray(hash_array,url_hash)) { // make sure the hash is in the array before continuing
       var current_fp_nav_href = $('.fp-nav.active').attr('href');
       if (url_hash != current_fp_nav_href) {
-        $('.fp-nav.active').removeClass('active');
         $(a[href=url_hash]).addClass('active');
         fadingPages(url_hash);
       }
+    } else {
+      $(a[href=first_fp_nav_href]).addClass('active');
+      fadingPages(first_fp_nav_href);
     }
   }
 
@@ -47,12 +50,9 @@ $(document).ready(function() {
     $(context).toggleClass('on').toggleClass('off').removeAttr('style');
   }
 
-  // Simple check if something is inside an array
+  // Simple check if something is inside an array (exact match)
   function isInArray(array,value) {o
-    for (var i = array.length; i--;) {
-      if (value.indexOf(array[i]) > -1) return true;
-    }
-    return false;
+    return (array.indexOf(value) !== -1) ? true : false;
   }
 
 });

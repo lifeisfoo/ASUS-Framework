@@ -26,9 +26,9 @@ $(document).ready(function() {
   if (!pop) { // popstate not supported
     $('.fp-nav').click(function() {
       if (!$(this).hasClass('active')) {
-        $('.fp-nav.active').removeClass('active');
-        $(this).addClass('active');
-        fadingPages($(this).attr('href'));
+        var url_hash = $(this).attr('href');
+        toggleNavState(url_hash);
+        fadingPages(url_hash);
       }
     });
   }
@@ -37,8 +37,7 @@ $(document).ready(function() {
     var current_fp_nav_href = $('.fp-nav.active').attr('href');
     if (isInArray(hash_array,url_hash)) { // make sure the hash is in the array before continuing
       if (url_hash !== current_fp_nav_href) { // Don't do anything if we're already on the page
-        $('.fp-nav.active').removeClass('active');
-        $('a[href="' + url_hash + '"]').addClass('active');
+        toggleNavState(url_hash);
         fadingPages(url_hash);
       }
     } else { // if we get a bad hash, go back to first page
@@ -60,6 +59,11 @@ $(document).ready(function() {
 
   function toggleFadeState(context) {
     $(context).toggleClass('on').toggleClass('off').removeAttr('style');
+  }
+
+  function toggleNavState(href) {
+    $('.fp-nav.active').removeClass('active');
+    $('a[href="' + href + '"]').addClass('active');
   }
 
   // Simple check if something is inside an array (exact match)

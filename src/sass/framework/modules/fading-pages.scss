@@ -15,6 +15,14 @@ $include-fading-pages: true !default;
       &.off {
         display: none;
       }
+      @media #{$small-only} {
+        position: relative;
+        top: auto;
+        left: auto;
+        &.off {
+          display: inherit !important;
+        }
+      }
     }
   }
 

@@ -7,6 +7,7 @@ $(document).ready(function() {
   $('.fp-nav:first').addClass('active');
 
   var top_z_index = 99; // optionally used to align content
+<<<<<<< HEAD
   var hash_array = $('.fp-nav').map(function() { // build an array of all the .fp-nav links to check
       return $(this).attr('href');
     }).toArray();
@@ -25,6 +26,20 @@ $(document).ready(function() {
     if (isInArray(hash_array,url_hash)) { // make sure the hash is in the array before continuing
       var current_fp_nav_href = $('.fp-nav.active').attr('href');
       if (url_hash != current_fp_nav_href) {
+=======
+
+  window.addEventListener('popstate', function()  {
+    hashChange(window.location.hash);
+  });
+  
+  function hashChange(url_hash) {
+    var hash_array = $('.fp-nav').map(function() { // build an array of all the .fp-nav links to check
+      return $(this).attr('href');
+    }).toArray();
+    if (isInArray(hash_array,url_hash)) { // make sure the hash is in the array before continuing
+      var current_fp_nav_href = $('.fp-nav.active').attr('href');
+      if (url_hash !== current_fp_nav_href) {
+>>>>>>> 4941604d78ec77b162922cb28ce86392c2f808a3
         $('.fp-nav.active').removeClass('active');
         $(a[href=url_hash]).addClass('active');
         fadingPages(url_hash);

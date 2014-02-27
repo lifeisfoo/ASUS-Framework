@@ -17,20 +17,45 @@ $(document).ready(function() {
     pop = true;
     var current_hash = window.location.hash;
     if (current_hash.length > 0) { // if hash is blank, load default
+      setPreviousNext(current_hash);
       hashChange(current_hash);
     } else {
+      setPreviousNext(first_fp_nav_href);
       hashChange(first_fp_nav_href);
     }
   });
 
   if (!pop) { // popstate not supported
-    $('.fp-nav').click(function() {
+    $('.fp-nav, .fp-previous, .fp-next').click(function() {
       if (!$(this).hasClass('active')) {
         var url_hash = $(this).attr('href');
+        setPreviousNext(url_hash);
         toggleNavState(url_hash);
         fadingPages(url_hash);
       }
     });
+    setPreviousNext(first_fp_nav_href); // load default previous/next
+  }
+
+  function setPreviousNext(current_id) {
+    $('.fp-previous').attr('href', getPrevious(current_id));
+    $('.fp-next').attr('href', getNext(current_id));
+  }
+
+  function getPrevious(current_id) {
+    if ($(current_id).prev().length > 0) {
+      return '#' + $(current_id).prev().attr('id');
+    } else {
+      return '#' + $('.fp-content-parent:last').attr('id');
+    }
+  }
+
+  function getNext(current_id) {
+    if ($(current_id).next().length > 0) {
+      return '#' + $(current_id).next().attr('id');
+    } else {
+      return '#' + $('.fp-content-parent:first').attr('id');
+    }
   }
   
   function hashChange(url_hash) {
@@ -63,7 +88,7 @@ $(document).ready(function() {
 
   function toggleNavState(href) {
     $('.fp-nav.active').removeClass('active');
-    $('a[href="' + href + '"]').addClass('active');
+    $('a[href="' + href + '"].fp-nav').addClass('active');
   }
 
   // Simple check if something is inside an array (exact match)

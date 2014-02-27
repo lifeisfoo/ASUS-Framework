@@ -15,22 +15,23 @@ $(document).ready(function() {
   window.addEventListener('popstate', function()  {
     var current_hash = window.location.hash;
     if (current_hash.length > 0) { // if hash is blank, load default
-      hashChange(window.location.hash);
+      hashChange(current_hash);
     } else {
       hashChange(first_fp_nav_href);
     }
   });
   
   function hashChange(url_hash) {
-    $('.fp-nav.active').removeClass('active');
+    var current_fp_nav_href = $('.fp-nav.active').attr('href');
+    console.log('current href is ' + current_fp_nav_href)
     if (isInArray(hash_array,url_hash)) { // make sure the hash is in the array before continuing
-      var current_fp_nav_href = $('.fp-nav.active').attr('href');
-      if (url_hash != current_fp_nav_href) {
-        $(a[href=url_hash]).addClass('active');
+      if (url_hash !== current_fp_nav_href) {
+        $('.fp-nav.active').removeClass('active');
+        $('a[href="' + url_hash + '"]').addClass('active');
         fadingPages(url_hash);
       }
     } else {
-      $(a[href=first_fp_nav_href]).addClass('active');
+      $('a[href="' + first_fp_nav_href + '"]').addClass('active');
       fadingPages(first_fp_nav_href);
     }
   }

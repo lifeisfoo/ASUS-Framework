@@ -11,30 +11,46 @@ $(document).ready(function() {
       return $(this).attr('href');
     }).toArray();
   var first_fp_nav_href = $('.fp-nav:first').attr('href');
-  var pop = false;
+  var fadeOut_speed = 100;
+  var fadeIn_speed = 500;
+  var total_fading_speed = fadeOut_speed + fadeIn_speed;
+  
+  var initial_hash = window.location.hash;
+  if (initial_hash.length > 0) { hashChange(initial_hash); } // fade to section on page load
 
-  window.addEventListener('popstate', function()  {
-    pop = true;
-    var current_hash = window.location.hash;
-    if (current_hash.length > 0) { // if hash is blank, load default
-      setPreviousNext(current_hash);
-      hashChange(current_hash);
-    } else {
-      setPreviousNext(first_fp_nav_href);
-      hashChange(first_fp_nav_href);
+  setPreviousNext(first_fp_nav_href); // set correct previous/next href on page load
+
+  $('.fp-nav, .fp-previous, .fp-next').click(function() {
+    if (!$(this).hasClass('active')) {
+      var new_hash = $(this).attr('href');
+      hashChange(new_hash);
     }
   });
-
-  if (!pop) { // popstate not supported
-    $('.fp-nav, .fp-previous, .fp-next').click(function() {
-      if (!$(this).hasClass('active')) {
-        var url_hash = $(this).attr('href');
-        setPreviousNext(url_hash);
+  
+  function hashChange(url_hash) {
+    var current_fp_nav_href = $('.fp-nav.active').attr('href');
+    if (url_hash.length > 0 && isInArray(hash_array,url_hash)) { // if hash is blank or bad, load default
+      if (url_hash !== current_fp_nav_href) {
         toggleNavState(url_hash);
         fadingPages(url_hash);
+        setTimeout(function(){
+          setPreviousNext(url_hash);
+        }, total_fading_speed); 
       }
-    });
-    setPreviousNext(first_fp_nav_href); // load default previous/next
+    } else {
+      hashChange(first_fp_nav_href);
+    }          
+  }
+
+  function fadingPages(id) {    
+    $('.fp-content-parent.on')
+      .fadeOut(fadeOut_speed,function(){
+        toggleFadeState($(this));
+      });
+    $(id)
+      .fadeIn(fadeIn_speed,function() {
+        toggleFadeState($(this));
+      });
   }
 
   function setPreviousNext(current_id) {
@@ -56,30 +72,6 @@ $(document).ready(function() {
     } else {
       return '#' + $('.fp-content-parent:first').attr('id');
     }
-  }
-  
-  function hashChange(url_hash) {
-    var current_fp_nav_href = $('.fp-nav.active').attr('href');
-    if (isInArray(hash_array,url_hash)) { // make sure the hash is in the array before continuing
-      if (url_hash !== current_fp_nav_href) { // Don't do anything if we're already on the page
-        toggleNavState(url_hash);
-        fadingPages(url_hash);
-      }
-    } else { // if we get a bad hash, go back to first page
-      $('a[href="' + first_fp_nav_href + '"]').addClass('active');
-      fadingPages(first_fp_nav_href);
-    }
-  }
-
-  function fadingPages(id) {    
-    $('.fp-content-parent.on')
-      .fadeOut(100,function(){
-        toggleFadeState($(this));
-      });
-    $(id)
-      .fadeIn(500,function() {
-        toggleFadeState($(this));
-      });
   }
 
   function toggleFadeState(context) {

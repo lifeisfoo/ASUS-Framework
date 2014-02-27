@@ -2,6 +2,20 @@ $include-fading-pages: true !default;
 
 @if $include-fading-pages {
 
-  
+  // Fading pages requires JavaScript
+  // Without, it will revert back to default Framework styling
+  .js {
+    .fp-container {
+      position: relative;
+    }
+    .fp-content-parent {
+      position: absolute;
+      top: 0;
+      left: 0;
+      &.off {
+        display: none;
+      }
+    }
+  }
 
 }

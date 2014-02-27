@@ -23,7 +23,6 @@ $(document).ready(function() {
   
   function hashChange(url_hash) {
     var current_fp_nav_href = $('.fp-nav.active').attr('href');
-    console.log('current href is ' + current_fp_nav_href)
     if (isInArray(hash_array,url_hash)) { // make sure the hash is in the array before continuing
       if (url_hash !== current_fp_nav_href) {
         $('.fp-nav.active').removeClass('active');

@@ -17,14 +17,13 @@ $(document).ready(function() {
   });
 
   function fadingPages(id) {    
-    
-    console.log(id + ' is the ID');
+
     $('.fp-content-parent.on')
-      .fadeOut(function(){
+      .fadeOut(100,function(){
         toggleFadeState($(this));
       });
     $(id)
-      .fadeIn(function() {
+      .fadeIn(500,function() {
         toggleFadeState($(this));
       });
 

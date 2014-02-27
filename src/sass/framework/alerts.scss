@@ -1,0 +1,33 @@
+.alert {
+  padding: 1em;
+  margin-bottom: 1em;
+  border: 1px solid transparent;
+
+  // Provide class for links that match alerts
+  .alert-link {
+    font-weight: 600;
+  }
+
+  // Improve alignment and spacing of inner content
+  > p,
+  > ul {
+    margin-bottom: 0;
+  }
+  > p + p {
+    margin-top: 5px;
+  }
+}
+
+// alert-variant(background, border, text)
+.alert-success {
+  @include alert-variant(lighten($green, 35%), $olive, $olive);
+}
+.alert-info {
+  @include alert-variant(lighten($aqua, 15%), $blue, $blue);
+}
+.alert-warning {
+  @include alert-variant(lighten($yellow, 35%), $orange, $orange);
+}
+.alert-danger {
+  @include alert-variant(lighten($red, 30%), $red, darken($red,15%));
+}

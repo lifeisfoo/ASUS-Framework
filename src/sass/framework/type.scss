@@ -1,0 +1,124 @@
+h1, h2, h3, h4, h5, h6, strong, dt {
+  font-weight: 700;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0.5em 0;
+}
+
+p {
+  margin: 0 0 0.5em;
+}
+
+h1 {
+  font-size: $paragraph-font-size * 2;
+  line-height: $base-line-height;
+  @media #{$small-only} {
+    font-size: $paragraph-font-size * 1.8;
+  }
+  @media #{$large-up} {
+    font-size: $paragraph-font-size * 2.5;
+    line-height: $base-line-height * 0.9;
+  }
+  @media #{$xxlarge-up} {
+    font-size: $paragraph-font-size * 3;
+    line-height: $base-line-height * 0.84;
+  }
+}
+
+h2 {
+  font-size: $paragraph-font-size * 1.625;
+  line-height: $base-line-height * 0.923;
+  @media #{$small-only} {
+    font-size: $paragraph-font-size * 1.5;
+  }
+  @media #{$large-up} {
+    font-size: $paragraph-font-size * 2;
+    line-height: $base-line-height * 0.9;
+  }
+  @media #{$xxlarge-up} {
+    font-size: $paragraph-font-size * 2.25;
+    line-height: $base-line-height * 0.84;
+  }
+}
+
+h3 {
+  font-size: $paragraph-font-size * 1.375;
+  line-height: $base-line-height * 0.909;
+  @media #{$small-only} {
+    font-size: $paragraph-font-size * 1.25;
+  }
+  @media #{$large-up} {
+    font-size: $paragraph-font-size * 1.5;
+    line-height: $base-line-height * 0.9;
+  }
+  @media #{$xxlarge-up} {
+    font-size: $paragraph-font-size * 1.75;
+    line-height: $base-line-height * 0.84;
+  }
+}
+
+h4, blockquote {
+  font-size: $paragraph-font-size * 1.125;
+  line-height: $base-line-height * 0.888;
+  @media #{$small-only} {
+    font-size: $paragraph-font-size * 1.1;
+  }
+  @media #{$large-up} {
+    font-size: $paragraph-font-size * 1.2;
+    line-height: $base-line-height * 0.84;
+  }
+  @media #{$xxlarge-up} {
+    font-size: $paragraph-font-size * 1.25;
+    line-height: $base-line-height * 0.8;
+  }
+}
+
+h5, p, li, dt, dd, td, th {
+  font-size: $paragraph-font-size;
+  line-height: $base-line-height;
+  @media #{$xxlarge-up} {
+    font-size: $paragraph-font-size * 1.15;
+    line-height: $base-line-height * 1.1;
+  }
+}
+
+h6 {
+  font-size: $paragraph-font-size * 0.8;
+  line-height: $base-line-height * 0.9;
+  @media #{$small-only} {
+    font-size: $paragraph-font-size * 0.75;
+  }
+  @media #{$large-up} {
+    font-size: $paragraph-font-size * 0.85;
+    line-height: $base-line-height * 0.84;
+  }
+  @media #{$xxlarge-up} {
+    font-size: $paragraph-font-size * 0.9;
+    line-height: $base-line-height * 0.888;
+  }
+}
+
+// Specials
+.heading {
+  border-bottom: 1px solid $silver;
+}
+
+// Alignment
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.text-center {
+  text-align: center;
+}
+.text-justify {
+  text-align: justify;
+}
+
+// Contextual
+@include text-emphasis-variant('.text-success', $green);
+@include text-emphasis-variant('.text-warning', darken($yellow, 5%));
+@include text-emphasis-variant('.text-danger', $red);

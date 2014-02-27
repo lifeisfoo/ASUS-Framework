@@ -1,0 +1,103 @@
+// Set box-sizing globally to handle padding and border widths
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body { 
+  height: 100%;
+}
+
+html {
+  font-size: $rem-base;
+}
+
+// Default body styles
+body {
+  background: $body-bg;
+  color: $text-color;
+  padding: 0;
+  margin: 0;
+  font-size: $base-font-size;
+  font-family: $body-font-family-sans;
+  font-weight: $body-font-weight;
+  font-style: $body-font-style;
+  line-height: $base-line-height;
+  position: relative;
+}
+
+// Grid Defaults to get images and embeds to work properly
+img,
+object,
+embed { max-width: 100%; height: auto; }
+
+object,
+embed { height: 100%; }
+img { -ms-interpolation-mode: bicubic; }
+
+// Get rid of gap under images by making them display: inline-block; by default
+img {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Forms */
+
+// Make sure textarea takes on height automatically
+textarea { height: auto; min-height: rem-calc(50); }
+
+// Make select elements 100% width by default
+select { width: 100%; }
+
+/* List options */
+
+ul, ol {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  ul, ol {
+    margin-bottom: 0;
+  }
+  @media #{$small-only} {
+    padding-left: rem-calc(25);
+  }
+  @media #{$medium-up} {
+    padding-left: rem-calc(40);
+  }
+}
+
+dl {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+dd {
+  margin-left: 0;
+}
+
+/* Blockquotes */
+
+blockquote {
+  padding: 0.5em 1em;
+  margin: 1em 0;
+  border-left: rem-calc(5) solid $silver;
+
+  p,
+  ul,
+  ol {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/* Prettier Links */
+
+a {
+  transition: color .3s ease-in-out;
+}
+
+a:link    { color: $blue; }
+a:visited { color: $purple; }
+a:hover   { color: $aqua; }
+a:active  { color: $orange; }

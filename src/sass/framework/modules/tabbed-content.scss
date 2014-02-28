@@ -1,0 +1,25 @@
+$include-tabbed-content: true !default;
+
+@if $include-tabbed-content {
+
+  .js {
+    .tc-container {
+      position: relative;
+      min-height: rem-calc(150);
+      > .tc-content-parent {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        &.off {
+          display: none;
+        }
+      }
+      > .tc-nav-parent {
+        position: relative;
+        z-index: 2;
+      }
+    }
+  }
+
+}

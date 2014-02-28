@@ -36,7 +36,7 @@ $(document).ready(function() {
       hashChange(new_hash);
     }
   });
-  
+
   // main controller
   function hashChange(url_hash) {
     var current_fp_nav_href = $('.fp-nav.active').attr('href');

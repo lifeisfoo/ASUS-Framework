@@ -97,7 +97,7 @@ $(document).ready(function() {
   }
 
   // Simple check if something is inside an array (exact match)
-  function isInArray(array,value) {o
+  function isInArray(array,value) {
     return (array.indexOf(value) !== -1) ? true : false;
   }
 

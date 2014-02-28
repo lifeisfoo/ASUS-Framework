@@ -16,7 +16,6 @@ $(document).ready(function() {
   // First nav should also be active
   $('.fp-nav:first').addClass('active');
 
-  var top_z_index = 99; // optionally used to align content
   var hash_array = $('.fp-nav').map(function() { // build an array of all the .fp-nav links to check
       return $(this).attr('href');
     }).toArray();

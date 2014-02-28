@@ -1,3 +1,13 @@
+/*
+Fading Pages module plugin for ASUS Framework
+
+This plugin is used meant to be used as AJAX page-wide navigation where history
+needs to be retained. More than one fading pages system cannot be installed on the
+same page due to this.
+
+This plugin requires JavaScript, jQuery 1.0+
+*/
+
 $(document).ready(function() {
 
   // Hide all except for the first parent
@@ -15,11 +25,12 @@ $(document).ready(function() {
   var fadeIn_speed = 500;
   var total_fading_speed = fadeOut_speed + fadeIn_speed;
   
+  // Initial page load functions
   var initial_hash = window.location.hash;
   if (initial_hash.length > 0) { hashChange(initial_hash); } // fade to section on page load
-
   setPreviousNext(first_fp_nav_href); // set correct previous/next href on page load
 
+  // jQuery click event
   $('.fp-nav, .fp-previous, .fp-next').click(function() {
     if (!$(this).hasClass('active')) {
       var new_hash = $(this).attr('href');
@@ -27,6 +38,7 @@ $(document).ready(function() {
     }
   });
   
+  // main controller
   function hashChange(url_hash) {
     var current_fp_nav_href = $('.fp-nav.active').attr('href');
     if (url_hash.length > 0 && isInArray(hash_array,url_hash)) { // if hash is blank or bad, load default
@@ -42,6 +54,7 @@ $(document).ready(function() {
     }          
   }
 
+  // controls animation and class juggling
   function fadingPages(id) {    
     $('.fp-content-parent.on')
       .fadeOut(fadeOut_speed,function(){
@@ -53,6 +66,7 @@ $(document).ready(function() {
       });
   }
 
+  // fire when you need to reset attr('href') on the previous/next links
   function setPreviousNext(current_id) {
     $('.fp-previous').attr('href', getPrevious(current_id));
     $('.fp-next').attr('href', getNext(current_id));

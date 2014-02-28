@@ -32,8 +32,7 @@ $(document).ready(function() {
   // jQuery click event
   $('.fp-nav, .fp-previous, .fp-next').click(function() {
     if (!$(this).hasClass('active')) {
-      var new_hash = $(this).attr('href');
-      hashChange(new_hash);
+      hashChange($(this).attr('href'));
     }
   });
 

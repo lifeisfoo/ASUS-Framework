@@ -29,12 +29,15 @@ $(document).ready(function() {
   if (initial_hash.length > 0) { hashChange(initial_hash); } // fade to section on page load
   setPreviousNext(first_fp_nav_href); // set correct previous/next href on page load
 
-  // jQuery click event
-  $('.fp-nav, .fp-previous, .fp-next').click(function() {
-    if (!$(this).hasClass('active')) {
-      hashChange($(this).attr('href'));
-    }
-  });
+  if (document.addEventListener) {
+    window.addEventListener('hashchange', function() {
+      hashChange(window.location.hash);
+    });
+  } else {
+    document.attachEvent('hashchange', function() {
+      hashChange(window.location.hash);
+    });
+  }
 
   // main controller
   function hashChange(url_hash) {

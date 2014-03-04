@@ -22,8 +22,10 @@ $include-fading-pages: true !default;
         position: relative;
         top: auto;
         left: auto;
+        z-index: auto;
         &.off {
           display: inherit !important;
+          z-index: auto;
         }
       }
     }

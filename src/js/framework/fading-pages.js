@@ -60,10 +60,10 @@ $(document).ready(function() {
     $('.fp-content-parent.on')
       .fadeOut(fadeOut_speed,function(){
         toggleFadeState($(this));
-      });
-    $(id)
-      .fadeIn(fadeIn_speed,function() {
-        toggleFadeState($(this));
+        $(id)
+        .fadeIn(fadeIn_speed,function() {
+          toggleFadeState($(this));
+        });
       });
   }
 

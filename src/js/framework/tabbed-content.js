@@ -16,8 +16,9 @@ $(document).ready(function() {
   });
 
   function switchContent(id) {
-    $(id).parent().children('.tc-content-parent.on').toggleClass('off').toggleClass('on');
-    $(id).toggleClass('off').toggleClass('on');
+    $(id).parent().children('.tc-content-parent.on').toggleClass('off').toggleClass('on', function() {
+      $(id).toggleClass('off').toggleClass('on');
+    });    
   }
 
 });

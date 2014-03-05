@@ -9,13 +9,15 @@ $include-tabbed-content: true !default;
   .js {
     .tc-container {
       position: relative;
+      z-index: 1;
       min-height: rem-calc(150);
       > .tc-content-parent {
-        position: absolute;
+        position: relative;
         top: 0;
         left: 0;
         z-index: 1;
         &.off {
+          z-index: -1;
           display: none;
         }
       }

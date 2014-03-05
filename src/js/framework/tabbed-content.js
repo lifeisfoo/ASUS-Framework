@@ -6,7 +6,7 @@ $(document).ready(function() {
   // First nav should also be active per container
   $('.tc-container').find('.tc-nav:first').addClass('active');
 
-  $('.tc-nav').click(function(e) {
+  $('.tc-nav').on('click touchstart', function(e) {
     e.preventDefault();
     if (!$(this).hasClass('active')) {
       $(this).addClass('active');
@@ -16,9 +16,8 @@ $(document).ready(function() {
   });
 
   function switchContent(id) {
-    $(id).parent().children('.tc-content-parent.on').toggleClass('off').toggleClass('on', function() {
-      $(id).toggleClass('off').toggleClass('on');
-    });    
+    $(id).parent().children('.tc-content-parent.on').toggleClass('off').toggleClass('on');
+    $(id).toggleClass('off').toggleClass('on');
   }
 
 });

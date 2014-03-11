@@ -2,7 +2,15 @@ $(document).ready(function() {
 
   $('.dropdown-menu-button').click(function(e) {
     e.preventDefault();
-    $('.dropdown-menu').slideToggle('400','easeOutCirc');
+    toggleMenu();
   });
+
+  $('.dropdown-item > a').click(function() {
+    toggleMenu();
+  })
+
+  function toggleMenu() {
+    $('.dropdown-menu').slideToggle('400','easeOutCirc');
+  }
 
 });

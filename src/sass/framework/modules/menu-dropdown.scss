@@ -5,7 +5,7 @@ $include-menu-dropdown: true !default;
   .js {
     .dropdown-menu {
       display: none;
-      overflow: none;
+      overflow: hidden;
       &.show-for-mobile {
         @media #{$small-only} {
           display: inherit !important;

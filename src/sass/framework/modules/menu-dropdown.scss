@@ -3,6 +3,15 @@ $include-menu-dropdown: true !default;
 @if $include-menu-dropdown {
 
   .js {
+    .dropdown-menu {
+      display: none;
+      overflow: none;
+      &.show-for-mobile {
+        @media #{$small-only} {
+          display: inherit !important;
+        }
+      }
+    }
 
   }
 

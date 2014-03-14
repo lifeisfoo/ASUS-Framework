@@ -23,12 +23,13 @@ $(document).ready(function() {
     });
 
     $('.modal-overlay').on('click touchstart', function() {
-      remove_overlay();
+      close_modal();
     });
   }
 
-  function remove_overlay() {
-    $(overlay).remove();
+  function close_modal() {
+    $(overlay).detach();
+    $(modal_box).empty();
   }
 
   function add_modal_box() {

@@ -1,0 +1,13 @@
+$include-responsive-modal: true !default;
+
+@if $include-responsive-modal {
+
+  .js {
+    .modal-overlay {
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0,0,0,0.8);
+    }
+  }
+
+}

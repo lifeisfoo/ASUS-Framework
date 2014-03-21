@@ -34,10 +34,12 @@ $(document).ready(function() {
   function add_overlay() {
     $(overlay).appendTo('body').fadeIn('slow', function() {
       add_modal_box();
+      stop_overflow();
     });
 
     $('.modal-overlay').on('click touchstart', function() {
       close_modal();
+      stop_overflow();
     });
   }
 
@@ -60,6 +62,10 @@ $(document).ready(function() {
     var id = url.split('v=')[1];
     var amp = id.indexOf('&');
     return (amp != -1) ? id.substring(0, amp) : id;
+  }
+
+  function stop_overflow() {
+    $('body').toggleClass('cancel-overflow');
   }
 
 });

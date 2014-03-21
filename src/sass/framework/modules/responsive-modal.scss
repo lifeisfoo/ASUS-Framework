@@ -3,6 +3,9 @@ $include-responsive-modal: true !default;
 @if $include-responsive-modal {
 
   .js {
+    &.cancel-overflow {
+      overflow: hidden;
+    }
     .modal-overlay {
       display: none;
       position: absolute;

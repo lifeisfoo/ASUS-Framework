@@ -6,6 +6,7 @@ $(document).ready(function() {
   $('.modal').on('click touchstart', function(e) {
 
     e.preventDefault();
+    stop_overflow();
 
     var url = this.href;
 
@@ -34,16 +35,15 @@ $(document).ready(function() {
   function add_overlay() {
     $(overlay).appendTo('body').fadeIn('slow', function() {
       add_modal_box();
-      stop_overflow();
     });
 
     $('.modal-overlay').on('click touchstart', function() {
       close_modal();
-      stop_overflow();
     });
   }
 
   function close_modal() {
+    reset_default();
     $(overlay).fadeOut().detach();
     $(modal_box).empty();
   }
@@ -65,7 +65,11 @@ $(document).ready(function() {
   }
 
   function stop_overflow() {
-    $('body').toggleClass('cancel-overflow');
+    $('body').addClass('cancel-overflow');
+  }
+
+  function reset_default() {
+    $('body').removeClass('cancel-overflow');
   }
 
 });

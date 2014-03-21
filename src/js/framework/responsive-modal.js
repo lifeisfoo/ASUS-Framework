@@ -6,13 +6,13 @@ $(document).ready(function() {
   $('.modal').on('click touchstart', function(e) {
 
     e.preventDefault();
-    stop_overflow();
-
+    
     var url = this.href;
 
     if (window_width() > 700) {
 
       add_overlay();
+      stop_overflow();
 
       if ((url.indexOf('youtube.com') > -1) || (url.indexOf('youtu.be') > -1)) {
         add_youtube(get_youtube_id(url));

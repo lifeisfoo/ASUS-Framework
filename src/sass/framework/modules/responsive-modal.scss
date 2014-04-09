@@ -8,7 +8,7 @@ $include-responsive-modal: true !default;
     }
     .modal-overlay {
       display: none;
-      position: absolute;
+      position: fixed;
       left: 0;
       top: 0;
       z-index: 99;

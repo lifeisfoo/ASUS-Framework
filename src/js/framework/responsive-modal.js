@@ -53,7 +53,7 @@ $(document).ready(function() {
   }
 
   function add_youtube(id) {
-    var video_container = $('<div class="video-container"><iframe src="http://www.youtube.com/embed/'+ id +'?autoplay=1" frameborder="0" width="560" height="315"></iframe></div>');
+    var video_container = $('<div class="video-container"><iframe src="http://www.youtube.com/embed/'+ id +'?autoplay=1&rel=0" frameborder="0" width="560" height="315"></iframe></div>');
 
     $(video_container).appendTo(modal_box);
   }

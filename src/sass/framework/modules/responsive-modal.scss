@@ -11,7 +11,7 @@ $include-responsive-modal: true !default;
       position: fixed;
       left: 0;
       top: 0;
-      z-index: 99;
+      z-index: $z-modal;
       height: 100%;
       width: 100%;
       background-color: rgba(0,0,0,0.8);

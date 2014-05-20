@@ -4,10 +4,8 @@ $(document).ready(function() {
   var vp_height = $(window).height();
 
   if (page_height <= vp_height) {
-    console.log('Scroll hijack');
+    null;
   }
 
-  console.log('page: ' + page_height);
-  console.log('vp: ' + vp_height);
 
 });

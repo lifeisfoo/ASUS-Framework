@@ -1,12 +1,12 @@
 $(document).ready(function() {
 
+  function toggleMenu() {
+    $('.dropdown-menu').slideToggle('400','easeOutCirc');
+  }
+
   if ($('.dropdown-menu-button').length) {
 
     var $menu_button = $('.dropdown-menu-button');
-
-    function toggleMenu() {
-      $('.dropdown-menu').slideToggle('400','easeOutCirc');
-    }
 
     $menu_button.on('click', function(e) {
       e.preventDefault();

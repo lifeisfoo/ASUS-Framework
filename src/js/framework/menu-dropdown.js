@@ -4,6 +4,10 @@ $(document).ready(function() {
 
     var $menu_button = $('.dropdown-menu-button');
 
+    function toggleMenu() {
+      $('.dropdown-menu').slideToggle('400','easeOutCirc');
+    }
+
     $menu_button.on('click', function(e) {
       e.preventDefault();
       toggleMenu();
@@ -20,10 +24,6 @@ $(document).ready(function() {
 
       });
     });
-
-    function toggleMenu() {
-      $('.dropdown-menu').slideToggle('400','easeOutCirc');
-    }
 
   }
 

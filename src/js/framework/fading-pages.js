@@ -29,58 +29,16 @@ $(document).ready(function() {
     var fadeOut_speed = 100;
     var fadeIn_speed = 500;
     var total_fading_speed = fadeOut_speed + fadeIn_speed;
-    
-    // Initial page load functions
-    var initial_hash = window.location.hash;
-    if (initial_hash.length > 0) { hashChange(initial_hash); } // fade to section on page load
-    setPreviousNext(first_fp_nav_href); // set correct previous/next href on page load
 
-    if (document.addEventListener) {
-      window.addEventListener('hashchange', function() {
-        hashChange(window.location.hash);
-      });
-    } else {
-      document.attachEvent('hashchange', function() {
-        hashChange(window.location.hash);
-      });
-    }
-
-    // main controller
-    function hashChange(url_hash) {
-      var current_fp_nav_href = $('.fp-nav.active').length ? $('.fp-nav.active').attr('href') : null;
-      if (url_hash.length > 0 && isInArray(hash_array,url_hash)) { // if hash is blank or bad, load default
-        if (url_hash !== current_fp_nav_href) {
-          toggleNavState(url_hash);
-          fadingPages(url_hash);
-          setTimeout(function(){
-            setPreviousNext(url_hash);
-          }, total_fading_speed); 
-        }
-      } else {
-        hashChange(first_fp_nav_href);
+    function toggleNavState(href) {
+      if ($('.fp-nav').length) {
+        $('.fp-nav.active').removeClass('active');
+        $('a[href="' + href + '"].fp-nav').addClass('active');
       }
     }
 
-    // controls animation and class juggling
-    function fadingPages(id) {    
-      $('.fp-content-parent.on')
-        .fadeOut(fadeOut_speed,function(){
-          toggleFadeState($(this));
-          $(id)
-          .fadeIn(fadeIn_speed,function() {
-            toggleFadeState($(this));
-          });
-        });
-    }
-
-    // fire when you need to reset attr('href') on the previous/next links
-    function setPreviousNext(current_id) {
-      if ($('.fp-previous').length) {
-        $('.fp-previous').attr('href', getPrevious(current_id));
-      }
-      if ($('.fp-next').length) {
-        $('.fp-next').attr('href', getNext(current_id));
-      }
+    function toggleFadeState(context) {
+      $(context).toggleClass('on off').removeAttr('style');
     }
 
     function getPrevious(current_id) {
@@ -99,15 +57,55 @@ $(document).ready(function() {
       }
     }
 
-    function toggleFadeState(context) {
-      $(context).toggleClass('on').toggleClass('off').removeAttr('style');
+    // fire when you need to reset attr('href') on the previous/next links
+    function setPreviousNext(current_id) {
+      if ($('.fp-previous').length) {
+        $('.fp-previous').attr('href', getPrevious(current_id));
+      }
+      if ($('.fp-next').length) {
+        $('.fp-next').attr('href', getNext(current_id));
+      }
     }
 
-    function toggleNavState(href) {
-      if ($('.fp-nav').length) {
-        $('.fp-nav.active').removeClass('active');
-        $('a[href="' + href + '"].fp-nav').addClass('active');
+    // controls animation and class juggling
+    function fadingPages(id) {    
+      $('.fp-content-parent.on').fadeOut(fadeOut_speed,function() {
+        toggleFadeState($(this));
+        $(id).fadeIn(fadeIn_speed,function() {
+          toggleFadeState($(this));
+        });
+      });
+    }
+
+    // main controller
+    function hashChange(url_hash) {
+      var current_fp_nav_href = $('.fp-nav.active').length ? $('.fp-nav.active').attr('href') : null;
+      if (url_hash.length > 0 && isInArray(hash_array,url_hash)) { // if hash is blank or bad, load default
+        if (url_hash !== current_fp_nav_href) {
+          toggleNavState(url_hash);
+          fadingPages(url_hash);
+          setTimeout(function(){
+            setPreviousNext(url_hash);
+          }, total_fading_speed); 
+        }
+      } else {
+        hashChange(first_fp_nav_href);
       }
+    }
+    
+    // Initial page load functions
+    var initial_hash = window.location.hash;
+    if (initial_hash.length > 0) { hashChange(initial_hash); } // fade to section on page load
+    setPreviousNext(first_fp_nav_href); // set correct previous/next href on page load
+
+    if (document.addEventListener) {
+      window.addEventListener('hashchange', function() {
+        hashChange(window.location.hash);
+      });
+    } else {
+      document.attachEvent('hashchange', function() {
+        hashChange(window.location.hash);
+      });
     }
 
     // Simple check if something is inside an array (exact match)

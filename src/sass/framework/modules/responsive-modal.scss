@@ -18,12 +18,9 @@ $include-responsive-modal: true !default;
       cursor: pointer;
     }
     .modal-box {
-      position: absolute;
-      top: 10%;
-      left: 20%;
+      @extend %centerer;
       width: 60%;
       @media #{$medium-only} {
-        left: 10%;
         width: 80%;
       }
       > .video-container {

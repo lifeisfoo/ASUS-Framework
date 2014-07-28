@@ -17,9 +17,7 @@ $visibility-breakpoint-sizes:
 $visibility-breakpoint-queries:
   unquote($small-up),
   unquote($medium-up),
-  unquote($large-up),
-  unquote($xlarge-up),
-  unquote($xxlarge-up);
+  unquote($large-up);
 
 @mixin visibility-loop {
   @each $current-visibility-breakpoint in $visibility-breakpoint-sizes {

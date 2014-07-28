@@ -7,13 +7,13 @@
 // -------------------------
 
 .clearfix {
-  @include clearfix();
+  @extend %clearfix;
 }
 .center-block {
-  @include center-block();
+  @extend %center-block;
 }
 .vertical-center-block {
-  @include vertical-center-block();
+  @extend %vertical-center-block;
 }
 .pull-right {
   float: right !important;
@@ -37,7 +37,7 @@
   visibility: hidden;
 }
 .text-hide {
-  @include text-hide();
+  @extend %text-hide;
 }
 
 // List helpers

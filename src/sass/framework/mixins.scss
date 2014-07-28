@@ -105,23 +105,32 @@
 
 // Buttons
 // ------------------------
+%button-defaults {
+  position: relative;
+  display: inline-block;
+  margin-bottom: rem-calc(8);
+  padding: rem-calc(8) rem-calc(20);
+  text-transform: uppercase;
+  font-weight: 700;
+  &:hover {
+    top: 2px;
+    text-decoration: none;
+  }
+  &:active {
+    top: 4px;
+  }
+}
+
 @mixin create-button($class, $color) {
   .#{$class} {
-    position: relative;
-    display: inline-block;
-    margin-bottom: rem-calc(8);
-    padding: rem-calc(8) rem-calc(20);
+    @extend %button-defaults;    
     background: $color;
     color: darken($color, 60%) !important;
-    text-transform: uppercase;
-    font-weight: 700;
     box-shadow: 0 rem-calc(6) darken($color, 30%);
     border-top: 1px solid lighten($color, 10%);
     border-left: 1px solid lighten($color, 10%);
     border-right: 1px solid darken($color, 10%);
     &:hover {
-      top: 2px;
-      text-decoration: none;
       box-shadow: 0 rem-calc(4) darken($color, 30%);
       background: darken($color, 10%);
       border-top: 1px solid darken($color, 5%);
@@ -129,7 +138,6 @@
       border-right: 1px solid darken($color, 15%);
     }
     &:active {
-      top: 4px;
       box-shadow: 0 rem-calc(2) darken($color, 30%);
       background: darken($color, 20%);
       border-top: 1px solid darken($color, 35%);

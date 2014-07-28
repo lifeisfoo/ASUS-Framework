@@ -20,7 +20,7 @@ $include-responsive-modal: true !default;
     .modal-box {
       @extend %centerer;
       width: 60%;
-      @media #{$medium-only} {
+      @media #{$medium-down} {
         width: 80%;
       }
       > .video-container {

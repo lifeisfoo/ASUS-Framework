@@ -3,12 +3,8 @@ $(document).ready(function() {
   var overlay = $('<div class="modal-overlay"></div>');
   var modal_box = $('<div class="modal-box"></div>');
 
-  function window_width() {
-    return $(window).width();
-  }
-
-  function document_height() {
-    return $(document).height();
+  function is_touch_device() {
+    return (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) ? true : false;
   }
 
   function reset_default() {
@@ -57,7 +53,13 @@ $(document).ready(function() {
     
     var url = this.href;
 
-    if (window_width() > 700) {
+    var touch = is_touch_device();
+
+    if (touch) {
+
+      document.location = url;
+
+    } else {
 
       add_overlay();
       stop_overflow();
@@ -65,9 +67,7 @@ $(document).ready(function() {
       if ((url.indexOf('youtube.com') > -1) || (url.indexOf('youtu.be') > -1)) {
         add_youtube(get_youtube_id(url));
       }
-
-    } else {
-      document.location = url;
+      
     }
 
   });

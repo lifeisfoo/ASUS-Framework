@@ -50,12 +50,10 @@ $(document).ready(function() {
   $('.modal').on('click touchstart', function(e) {
 
     e.preventDefault();
-    
+
     var url = this.href;
 
-    var touch = is_touch_device();
-
-    if (touch) {
+    if (is_touch_device()) {
 
       document.location = url;
 
@@ -67,7 +65,7 @@ $(document).ready(function() {
       if ((url.indexOf('youtube.com') > -1) || (url.indexOf('youtu.be') > -1)) {
         add_youtube(get_youtube_id(url));
       }
-      
+
     }
 
   });

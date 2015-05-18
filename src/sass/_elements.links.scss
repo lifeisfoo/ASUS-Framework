@@ -1,0 +1,9 @@
+a {
+  text-decoration: none;
+  transition: color .3s ease-in-out;
+}
+
+a:link    { color: $blue; }
+a:visited { color: $purple; }
+a:hover   { color: $aqua; text-decoration: underline;}
+a:active  { color: $orange; }

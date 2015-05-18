@@ -1,0 +1,9 @@
+@include create-button('button-info', $aqua);
+
+@include create-button('button-success', $green);
+
+@include create-button('button-warning', $yellow);
+
+@include create-button('button-danger', $red);
+
+@include create-button('button', $gray);

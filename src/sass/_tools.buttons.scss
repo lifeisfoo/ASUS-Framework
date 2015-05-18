@@ -1,0 +1,30 @@
+%button-defaults {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 8px 20px;
+  text-transform: uppercase;
+  font-weight: 700;
+  &:hover {
+    top: 2px;
+    text-decoration: none;
+  }
+  &:active {
+    top: 4px;
+  }
+}
+
+@mixin create-button($class, $color) {
+  .#{$class} {
+    @extend %button-defaults;    
+    background: $color;
+    color: darken($color, 60%) !important;
+    border: 1px solid darken($color, 60%);
+    &:hover {
+      background: darken($color, 10%);
+    }
+    &:active {
+      background: darken($color, 20%);
+    }
+  }
+}

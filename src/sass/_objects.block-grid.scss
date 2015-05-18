@@ -1,0 +1,18 @@
+@include exports("block-grid") {
+  @if $include-html-grid-classes {
+    
+    [class*="block-grid-"] { @include block-grid; }
+
+    @media #{$small-up} {
+      @include block-grid-html-classes($size:small,$include-spacing:false);
+    }
+
+    @media #{$medium-up} {
+      @include block-grid-html-classes($size:medium,$include-spacing:false);
+    }
+
+    @media #{$large-up} {
+      @include block-grid-html-classes($size:large,$include-spacing:false);
+    }
+  }
+}

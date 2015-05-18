@@ -39,7 +39,11 @@ If your tooling is more complex you can split it up like:
   "tools.ranges",
   "tools.size-shortcuts",
   "tools.import-once",
-  "tools.block-grid";
+  "tools.block-grid",
+  "tools.text-hide",
+  "tools.text-overflow",
+  "tools.alerts",
+  "tools.buttons";
 
 /*
 Generic rules are project-agnostic.
@@ -74,3 +78,19 @@ This is the first layer of classes and should be agnostically named
   "objects.wrappers",
   "objects.grid",
   "objects.block-grid";
+
+/*
+Components are the stuff of UI. Eg. buttons, special titles, etc.
+These get much more explicitly named: eg. products-list, etc.
+*/
+@import 
+  "components.lists",
+  "components.alerts",
+  "components.buttons";
+
+/*
+Trumps are overrides, helpers, utilities. They should only affect
+one piece of DOM at a time and usually carry !important
+*/
+@import 
+  "trumps.wrapper-overrides";

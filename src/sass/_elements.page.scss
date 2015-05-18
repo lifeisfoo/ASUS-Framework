@@ -1,0 +1,11 @@
+html {
+  font-size: $base-font-size;
+}
+
+body {
+  position: relative;
+  background: $base-body-bg;
+  color: $base-text-color;
+  font-size: 100%;
+  line-height: $base-line-height;
+}

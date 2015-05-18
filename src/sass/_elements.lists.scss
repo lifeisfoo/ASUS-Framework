@@ -1,0 +1,21 @@
+ul, ol {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  ul, ol {
+    margin-bottom: 0;
+  }
+  @media #{$small-only} {
+    padding-left: 25px;
+  }
+  @media #{$medium-up} {
+    padding-left: 40px;
+  }
+}
+
+dl {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+dd {
+  margin-left: 0;
+}

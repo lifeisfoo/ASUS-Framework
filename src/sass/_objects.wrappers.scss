@@ -1,6 +1,4 @@
 // .container by itself will simply center the main content and apply a small padding for whitespace around the edges
-// .container.controlled will allow for steps downward until an approximate tablet orientation which helps with some types of designs
-// .wide-load as a child of .container will allow for full screen images and backgrounds
 .container {
   max-width: ($row-width + $column-gutter);
   margin-left: auto;
@@ -11,21 +9,5 @@
   @media #{$small-only} {
     padding-left: $column-gutter / 4;
     padding-right: $column-gutter / 4;
-  }
-  &.controlled {
-    @media #{$medium-only} {
-      max-width: 50em;
-    }
-    @media #{$large-only} {
-      max-width: 63em;
-    }
-  }
-  .wide-load {
-    margin-left: -($column-gutter / 2) !important;
-    margin-right: -($column-gutter / 2) !important;
-    @media #{$small-only} {
-      margin-left: -($column-gutter / 4) !important;
-      margin-right: -($column-gutter / 4) !important;
-    }
   }
 }

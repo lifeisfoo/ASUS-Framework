@@ -2,6 +2,7 @@ var gulp = require('gulp'),
     sass = require('gulp-ruby-sass'),
     autoprefixer = require('gulp-autoprefixer'),
     minifycss = require('gulp-minify-css'),
+    cmq = require('gulp-combine-media-queries'),
     jshint = require('gulp-jshint'),
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
@@ -11,6 +12,8 @@ var gulp = require('gulp'),
     express = require('express'),
     livereload = require('gulp-livereload'),
     lr = require('tiny-lr'),
+    uncss = require('gulp-uncss'),
+    glob = require('glob'),
     lrserver = lr(),
     server = express(),
     livereloadport = 35729,
@@ -24,7 +27,14 @@ server.use(express.static(__dirname + '/dist/'));
 gulp.task('styles', function() {
   return gulp.src('src/sass/main.scss')
     .pipe(sass({ style: 'expanded' }))
-    .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
+    .pipe(autoprefixer('last 2 versions', 'safari 5', 'ie 8', 'ie 9'))
+    //.pipe(uncss({
+    //  html: glob.sync('dist/**/*.html'),
+    //  ignore: [/is-/, /not-/]
+    //}))
+    .pipe(cmq({
+      log: true
+    }))
     .pipe(gulp.dest('dist/assets/css'))
     .pipe(rename({suffix: '.min'}))
     .pipe(minifycss())
@@ -33,7 +43,7 @@ gulp.task('styles', function() {
 });
 
 gulp.task('scripts', function() {
-  return gulp.src('src/js/**/*.js')
+  return gulp.src(['src/js/vendor/**/*.js', 'src/js/*.js'])
     .pipe(jshint('.jshintrc'))
     .pipe(jshint.reporter('default'))
     .pipe(concat('main.js'))
@@ -45,7 +55,7 @@ gulp.task('scripts', function() {
 });
 
 gulp.task('clean', function() {
-  return gulp.src(['dist/assets/css', 'dist/assets/js', 'dist/assets/img'], {read: false})
+  return gulp.src(['dist/assets/css', 'dist/assets/js'], {read: false})
     .pipe(clean());
 });
 
@@ -69,5 +79,4 @@ gulp.task('watch', function() {
     // Watch .js files
     gulp.watch('src/js/**/*.js', ['scripts']);
 
-	
 });

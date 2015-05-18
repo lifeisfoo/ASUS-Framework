@@ -1,0 +1,8 @@
+img {
+  // Get rid of gap under images by making them display: inline-block; by default
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  -ms-interpolation-mode: bicubic;
+}

@@ -1,3 +1,34 @@
+/*
+This project follows Inverted Triangle CSS (ITCSS) by
+Harry "CSS Wizardry" Roberts. Files should be organized
+by groups which are described in detail below. As we go
+down our list of files we should go from:
+  Generic to explicit
+  Far-reaching to localised
+  Low specificity to high specificity
+
+@charset "UTF-8";
+
+/*
+Settings store all variables, config switches, etc.
+Split up into logical sections, the smaller and simpler the better.
+*/
+
+/*
+Tools store all programic Sass functionality.
+If your tooling is simplistic enough, you can do something like:
+  tools.mixins
+If your tooling is more complex you can split it up like:
+  tools.grid
+  tools.typography
+  etc.
+*/
+
+/*
+Generic rules are project-agnostic.
+These can be copied from any project to the next
+*/
+
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 
 /**
@@ -431,6 +462,779 @@ html {
 *:before,
 *:after {
 	box-sizing: inherit;
+}
+
+/*
+Elements are rules for classless HTML tags.
+There can exist no classes at this layer, only further into our triangle.
+*/
+
+html {
+	font-size: 14px;
+}
+
+body {
+	position: relative;
+	background: white;
+	color: #111111;
+	font-size: 100%;
+	line-height: 1.4;
+}
+
+img {
+	display: inline-block;
+	max-width: 100%;
+	height: auto;
+	vertical-align: middle;
+	-ms-interpolation-mode: bicubic;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong,
+dt {
+	font-weight: 700;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0.5em 0;
+}
+
+p {
+	margin: 0 0 0.5em;
+}
+
+h1 {
+	font-size: 2em;
+	line-height: 1.4;
+}
+
+h2 {
+	font-size: 1.625em;
+	line-height: 1.2922;
+}
+
+h3 {
+	font-size: 1.375em;
+	line-height: 1.2726;
+}
+
+h4,
+blockquote {
+	font-size: 1.125em;
+	line-height: 1.2432;
+}
+
+h5,
+p,
+li,
+dt,
+dd,
+td,
+th {
+	font-size: 1em;
+	line-height: 1.4;
+}
+
+h6 {
+	font-size: 0.8em;
+	line-height: 1.26;
+}
+
+a {
+	text-decoration: none;
+	transition: color .3s ease-in-out;
+}
+
+a:link {
+	color: #0074d9;
+}
+
+a:visited {
+	color: #b10dc9;
+}
+
+a:hover {
+	color: #7fdbff;
+	text-decoration: underline;
+}
+
+a:active {
+	color: #ff851b;
+}
+
+blockquote {
+	padding: 0.5em 1em;
+	margin: 1em 0;
+	border-left: 5px solid #dddddd;
+}
+
+blockquote p:last-child,
+blockquote ul:last-child,
+blockquote ol:last-child {
+	margin-bottom: 0;
+}
+
+ul,
+ol {
+	margin-top: 0;
+	margin-bottom: 0.5em;
+}
+
+ul ul,
+ul ol,
+ol ul,
+ol ol {
+	margin-bottom: 0;
+}
+
+dl {
+	margin-top: 0;
+	margin-bottom: 0.5em;
+}
+
+dd {
+	margin-left: 0;
+}
+
+table {
+	max-width: 100%;
+	background-color: transparent;
+}
+
+th {
+	text-align: left;
+}
+
+textarea {
+	height: auto;
+	min-height: 50px;
+}
+
+select {
+	width: 100%;
+}
+
+/*
+Objects are "formless", in other words invisible to the user, no cosmetics
+  Eg. wrappers, grid systems, etc.
+This is the first layer of classes and should be agnostically named
+  Eg. list-inline, ui-list, etc.
+*/
+
+[class*="block-grid-"] {
+	display: block;
+	padding: 0;
+	margin: 0 -10px;
+	*zoom: 1;
+}
+
+[class*="block-grid-"]:before,
+[class*="block-grid-"]:after {
+	content: " ";
+	display: table;
+}
+
+[class*="block-grid-"]:after {
+	clear: both;
+}
+
+[class*="block-grid-"] > li {
+	display: block;
+	height: auto;
+	float: left;
+	padding: 0 10px 20px;
+}
+
+@media only screen {
+
+.small-block-grid-1 > li {
+	width: 100%;
+	list-style: none;
+}
+
+.small-block-grid-1 > li:nth-of-type(n) {
+	clear: none;
+}
+
+.small-block-grid-1 > li:nth-of-type(1n+1) {
+	clear: both;
+}
+
+.small-block-grid-2 > li {
+	width: 50%;
+	list-style: none;
+}
+
+.small-block-grid-2 > li:nth-of-type(n) {
+	clear: none;
+}
+
+.small-block-grid-2 > li:nth-of-type(2n+1) {
+	clear: both;
+}
+
+.small-block-grid-3 > li {
+	width: 33.33333%;
+	list-style: none;
+}
+
+.small-block-grid-3 > li:nth-of-type(n) {
+	clear: none;
+}
+
+.small-block-grid-3 > li:nth-of-type(3n+1) {
+	clear: both;
+}
+
+.small-block-grid-4 > li {
+	width: 25%;
+	list-style: none;
+}
+
+.small-block-grid-4 > li:nth-of-type(n) {
+	clear: none;
+}
+
+.small-block-grid-4 > li:nth-of-type(4n+1) {
+	clear: both;
+}
+
+.small-block-grid-5 > li {
+	width: 20%;
+	list-style: none;
+}
+
+.small-block-grid-5 > li:nth-of-type(n) {
+	clear: none;
+}
+
+.small-block-grid-5 > li:nth-of-type(5n+1) {
+	clear: both;
+}
+
+.small-block-grid-6 > li {
+	width: 16.66667%;
+	list-style: none;
+}
+
+.small-block-grid-6 > li:nth-of-type(n) {
+	clear: none;
+}
+
+.small-block-grid-6 > li:nth-of-type(6n+1) {
+	clear: both;
+}
+
+.small-block-grid-7 > li {
+	width: 14.28571%;
+	list-style: none;
+}
+
+.small-block-grid-7 > li:nth-of-type(n) {
+	clear: none;
+}
+
+.small-block-grid-7 > li:nth-of-type(7n+1) {
+	clear: both;
+}
+
+.small-block-grid-8 > li {
+	width: 12.5%;
+	list-style: none;
+}
+
+.small-block-grid-8 > li:nth-of-type(n) {
+	clear: none;
+}
+
+.small-block-grid-8 > li:nth-of-type(8n+1) {
+	clear: both;
+}
+
+.small-block-grid-9 > li {
+	width: 11.11111%;
+	list-style: none;
+}
+
+.small-block-grid-9 > li:nth-of-type(n) {
+	clear: none;
+}
+
+.small-block-grid-9 > li:nth-of-type(9n+1) {
+	clear: both;
+}
+
+.small-block-grid-10 > li {
+	width: 10%;
+	list-style: none;
+}
+
+.small-block-grid-10 > li:nth-of-type(n) {
+	clear: none;
+}
+
+.small-block-grid-10 > li:nth-of-type(10n+1) {
+	clear: both;
+}
+
+.small-block-grid-11 > li {
+	width: 9.09091%;
+	list-style: none;
+}
+
+.small-block-grid-11 > li:nth-of-type(n) {
+	clear: none;
+}
+
+.small-block-grid-11 > li:nth-of-type(11n+1) {
+	clear: both;
+}
+
+.small-block-grid-12 > li {
+	width: 8.33333%;
+	list-style: none;
+}
+
+.small-block-grid-12 > li:nth-of-type(n) {
+	clear: none;
+}
+
+.small-block-grid-12 > li:nth-of-type(12n+1) {
+	clear: both;
+}
+
+}
+
+@media only screen and (min-width: 40.063em) {
+
+ul,
+ol {
+	padding-left: 40px;
+}
+
+.medium-block-grid-1 > li {
+	width: 100%;
+	list-style: none;
+}
+
+.medium-block-grid-1 > li:nth-of-type(n) {
+	clear: none;
+}
+
+.medium-block-grid-1 > li:nth-of-type(1n+1) {
+	clear: both;
+}
+
+.medium-block-grid-2 > li {
+	width: 50%;
+	list-style: none;
+}
+
+.medium-block-grid-2 > li:nth-of-type(n) {
+	clear: none;
+}
+
+.medium-block-grid-2 > li:nth-of-type(2n+1) {
+	clear: both;
+}
+
+.medium-block-grid-3 > li {
+	width: 33.33333%;
+	list-style: none;
+}
+
+.medium-block-grid-3 > li:nth-of-type(n) {
+	clear: none;
+}
+
+.medium-block-grid-3 > li:nth-of-type(3n+1) {
+	clear: both;
+}
+
+.medium-block-grid-4 > li {
+	width: 25%;
+	list-style: none;
+}
+
+.medium-block-grid-4 > li:nth-of-type(n) {
+	clear: none;
+}
+
+.medium-block-grid-4 > li:nth-of-type(4n+1) {
+	clear: both;
+}
+
+.medium-block-grid-5 > li {
+	width: 20%;
+	list-style: none;
+}
+
+.medium-block-grid-5 > li:nth-of-type(n) {
+	clear: none;
+}
+
+.medium-block-grid-5 > li:nth-of-type(5n+1) {
+	clear: both;
+}
+
+.medium-block-grid-6 > li {
+	width: 16.66667%;
+	list-style: none;
+}
+
+.medium-block-grid-6 > li:nth-of-type(n) {
+	clear: none;
+}
+
+.medium-block-grid-6 > li:nth-of-type(6n+1) {
+	clear: both;
+}
+
+.medium-block-grid-7 > li {
+	width: 14.28571%;
+	list-style: none;
+}
+
+.medium-block-grid-7 > li:nth-of-type(n) {
+	clear: none;
+}
+
+.medium-block-grid-7 > li:nth-of-type(7n+1) {
+	clear: both;
+}
+
+.medium-block-grid-8 > li {
+	width: 12.5%;
+	list-style: none;
+}
+
+.medium-block-grid-8 > li:nth-of-type(n) {
+	clear: none;
+}
+
+.medium-block-grid-8 > li:nth-of-type(8n+1) {
+	clear: both;
+}
+
+.medium-block-grid-9 > li {
+	width: 11.11111%;
+	list-style: none;
+}
+
+.medium-block-grid-9 > li:nth-of-type(n) {
+	clear: none;
+}
+
+.medium-block-grid-9 > li:nth-of-type(9n+1) {
+	clear: both;
+}
+
+.medium-block-grid-10 > li {
+	width: 10%;
+	list-style: none;
+}
+
+.medium-block-grid-10 > li:nth-of-type(n) {
+	clear: none;
+}
+
+.medium-block-grid-10 > li:nth-of-type(10n+1) {
+	clear: both;
+}
+
+.medium-block-grid-11 > li {
+	width: 9.09091%;
+	list-style: none;
+}
+
+.medium-block-grid-11 > li:nth-of-type(n) {
+	clear: none;
+}
+
+.medium-block-grid-11 > li:nth-of-type(11n+1) {
+	clear: both;
+}
+
+.medium-block-grid-12 > li {
+	width: 8.33333%;
+	list-style: none;
+}
+
+.medium-block-grid-12 > li:nth-of-type(n) {
+	clear: none;
+}
+
+.medium-block-grid-12 > li:nth-of-type(12n+1) {
+	clear: both;
+}
+
+}
+
+@media only screen and (min-width: 64.063em) {
+
+h1 {
+	font-size: 2.5em;
+	line-height: 1.26;
+}
+
+h2 {
+	font-size: 2em;
+	line-height: 1.26;
+}
+
+h3 {
+	font-size: 1.5em;
+	line-height: 1.26;
+}
+
+h4,
+blockquote {
+	font-size: 1.2em;
+	line-height: 1.176;
+}
+
+h6 {
+	font-size: 0.85em;
+	line-height: 1.176;
+}
+
+.large-block-grid-1 > li {
+	width: 100%;
+	list-style: none;
+}
+
+.large-block-grid-1 > li:nth-of-type(n) {
+	clear: none;
+}
+
+.large-block-grid-1 > li:nth-of-type(1n+1) {
+	clear: both;
+}
+
+.large-block-grid-2 > li {
+	width: 50%;
+	list-style: none;
+}
+
+.large-block-grid-2 > li:nth-of-type(n) {
+	clear: none;
+}
+
+.large-block-grid-2 > li:nth-of-type(2n+1) {
+	clear: both;
+}
+
+.large-block-grid-3 > li {
+	width: 33.33333%;
+	list-style: none;
+}
+
+.large-block-grid-3 > li:nth-of-type(n) {
+	clear: none;
+}
+
+.large-block-grid-3 > li:nth-of-type(3n+1) {
+	clear: both;
+}
+
+.large-block-grid-4 > li {
+	width: 25%;
+	list-style: none;
+}
+
+.large-block-grid-4 > li:nth-of-type(n) {
+	clear: none;
+}
+
+.large-block-grid-4 > li:nth-of-type(4n+1) {
+	clear: both;
+}
+
+.large-block-grid-5 > li {
+	width: 20%;
+	list-style: none;
+}
+
+.large-block-grid-5 > li:nth-of-type(n) {
+	clear: none;
+}
+
+.large-block-grid-5 > li:nth-of-type(5n+1) {
+	clear: both;
+}
+
+.large-block-grid-6 > li {
+	width: 16.66667%;
+	list-style: none;
+}
+
+.large-block-grid-6 > li:nth-of-type(n) {
+	clear: none;
+}
+
+.large-block-grid-6 > li:nth-of-type(6n+1) {
+	clear: both;
+}
+
+.large-block-grid-7 > li {
+	width: 14.28571%;
+	list-style: none;
+}
+
+.large-block-grid-7 > li:nth-of-type(n) {
+	clear: none;
+}
+
+.large-block-grid-7 > li:nth-of-type(7n+1) {
+	clear: both;
+}
+
+.large-block-grid-8 > li {
+	width: 12.5%;
+	list-style: none;
+}
+
+.large-block-grid-8 > li:nth-of-type(n) {
+	clear: none;
+}
+
+.large-block-grid-8 > li:nth-of-type(8n+1) {
+	clear: both;
+}
+
+.large-block-grid-9 > li {
+	width: 11.11111%;
+	list-style: none;
+}
+
+.large-block-grid-9 > li:nth-of-type(n) {
+	clear: none;
+}
+
+.large-block-grid-9 > li:nth-of-type(9n+1) {
+	clear: both;
+}
+
+.large-block-grid-10 > li {
+	width: 10%;
+	list-style: none;
+}
+
+.large-block-grid-10 > li:nth-of-type(n) {
+	clear: none;
+}
+
+.large-block-grid-10 > li:nth-of-type(10n+1) {
+	clear: both;
+}
+
+.large-block-grid-11 > li {
+	width: 9.09091%;
+	list-style: none;
+}
+
+.large-block-grid-11 > li:nth-of-type(n) {
+	clear: none;
+}
+
+.large-block-grid-11 > li:nth-of-type(11n+1) {
+	clear: both;
+}
+
+.large-block-grid-12 > li {
+	width: 8.33333%;
+	list-style: none;
+}
+
+.large-block-grid-12 > li:nth-of-type(n) {
+	clear: none;
+}
+
+.large-block-grid-12 > li:nth-of-type(12n+1) {
+	clear: both;
+}
+
+}
+
+@media only screen and (min-width: 120.063em) {
+
+h1 {
+	font-size: 3em;
+	line-height: 1.176;
+}
+
+h2 {
+	font-size: 2.25em;
+	line-height: 1.176;
+}
+
+h3 {
+	font-size: 1.75em;
+	line-height: 1.176;
+}
+
+h4,
+blockquote {
+	font-size: 1.25em;
+	line-height: 1.12;
+}
+
+h5,
+p,
+li,
+dt,
+dd,
+td,
+th {
+	font-size: 1.15em;
+	line-height: 1.54;
+}
+
+h6 {
+	font-size: 0.9em;
+	line-height: 1.2432;
+}
+
+}
+
+@media only screen and (max-width: 40em) {
+
+h1 {
+	font-size: 1.8em;
+}
+
+h2 {
+	font-size: 1.5em;
+}
+
+h3 {
+	font-size: 1.25em;
+}
+
+h4,
+blockquote {
+	font-size: 1.1em;
+}
+
+h6 {
+	font-size: 0.75em;
+}
+
+ul,
+ol {
+	padding-left: 25px;
+}
+
 }
 
 @media print {

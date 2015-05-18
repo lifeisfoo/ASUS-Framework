@@ -1,19 +1,24 @@
-// *** Typography ***
-$body-font-family-sans: sans-serif !default;
-$body-font-family-serif: serif !default;
-$body-font-weight: 400 !default;
-$body-font-style: normal !default;
+$base-body-bg: $white;
+$base-text-color: $black;
+$base-line-height: 1.4;
 
-$paragraph-font-size: 1em !default;
+// Used in all typography size calculations
+$paragraph-font-size: 1em;
+
+// Optional default font family stuff
+$body-font-family-sans: sans-serif;
+$body-font-family-serif: serif;
+$body-font-weight: 400;
+$body-font-style: normal;
 
 // We use these to control text direction settings
-$text-direction: ltr !default;
-$default-float: left !default;
-$opposite-direction: right !default;
+$text-direction: ltr;
+$default-float: left;
+$opposite-direction: right;
 @if $text-direction == ltr {
-  $default-float: left;
-  $opposite-direction: right;
+  $default-float: left !global;
+  $opposite-direction: right !global;
 } @else {
-  $default-float: right;
-  $opposite-direction: left;
+  $default-float: right !global;
+  $opposite-direction: left !global;
 }

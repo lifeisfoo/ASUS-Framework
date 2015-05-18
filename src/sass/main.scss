@@ -1,7 +1,16 @@
+/*
+This project follows Inverted Triangle CSS (ITCSS) by
+Harry "CSS Wizardry" Roberts. Files should be organized
+by groups which are described in detail below. As we go
+down our list of files we should go from:
+  Generic to explicit
+  Far-reaching to localised
+  Low specificity to high specificity
+
 @charset "UTF-8";
 
 /*
-Settings store all variables. 
+Settings store all variables, config switches, etc.
 Split up into logical sections, the smaller and simpler the better.
 */
 @import 
@@ -12,7 +21,8 @@ Split up into logical sections, the smaller and simpler the better.
   "settings.media-queries",
   "settings.grid",
   "settings.forms",
-  "settings.tables";
+  "settings.tables",
+  "settings.block-grid";
 
 /*
 Tools store all programic Sass functionality.
@@ -24,7 +34,12 @@ If your tooling is more complex you can split it up like:
   etc.
 */
 @import 
-  "tools.grid";
+  "tools.clearfix",
+  "tools.grid",
+  "tools.ranges",
+  "tools.size-shortcuts",
+  "tools.import-once",
+  "tools.block-grid";
 
 /*
 Generic rules are project-agnostic.
@@ -34,3 +49,28 @@ These can be copied from any project to the next
   "generic.normalize",
   "generic.box-sizing",
   "generic.print";
+
+/*
+Elements are rules for classless HTML tags.
+There can exist no classes at this layer, only further into our triangle.
+*/
+@import 
+  "elements.page",
+  "elements.img",
+  "elements.typography",
+  "elements.links",
+  "elements.quote",
+  "elements.lists",
+  "elements.tables",
+  "elements.forms";
+
+/*
+Objects are "formless", in other words invisible to the user, no cosmetics
+  Eg. wrappers, grid systems, etc.
+This is the first layer of classes and should be agnostically named
+  Eg. list-inline, ui-list, etc.
+*/
+@import 
+  "objects.wrappers",
+  "objects.grid",
+  "objects.block-grid";

@@ -1011,6 +1011,45 @@ Trumps are overrides, helpers, utilities. They should only affect
 one piece of DOM at a time and usually carry !important
 */
 
+.u-clearfix {
+	*zoom: 1;
+}
+
+.u-clearfix:before,
+.u-clearfix:after {
+	content: " ";
+	display: table;
+}
+
+.u-clearfix:after {
+	clear: both;
+}
+
+.u-pull-right {
+	float: right !important;
+}
+
+.u-pull-left {
+	float: left !important;
+}
+
+.is-hidden {
+	display: none !important;
+	visibility: hidden !important;
+}
+
+.is-not-hidden {
+	display: inherit !important;
+}
+
+.is-invisible {
+	visibility: hidden !important;
+}
+
+.is-visible {
+	visibility: inherit !important;
+}
+
 /* small displays */
 
 /* medium displays */

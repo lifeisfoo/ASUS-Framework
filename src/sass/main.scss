@@ -16,17 +16,20 @@ down our list of files we should go from:
 Settings store all variables, config switches, etc.
 Split up into logical sections, the smaller and simpler the better.
 */
+@import "settings.global"; // Import first
+
+// Required above group for dependencies
+@import "settings.colors"; 
+@import "settings.grid";
+
 @import 
-  "settings.global",
-  "settings.colors",
-  "settings.typography",
-  "settings.z-layers",
-  "settings.media-queries",
-  "settings.grid",
-  "settings.forms",
-  "settings.tables",
   "settings.block-grid",
-  "settings.visibility";
+  "settings.forms",
+  "settings.media-queries",
+  "settings.tables",
+  "settings.typography",
+  "settings.visibility",
+  "settings.z-layers";
 
 /*
 Tools store all programic Sass functionality.
@@ -55,8 +58,8 @@ Generic rules are project-agnostic.
 These can be copied from any project to the next
 */
 @import 
-  "generic.normalize",
   "generic.box-sizing",
+  "generic.normalize",
   "generic.print";
 
 /*

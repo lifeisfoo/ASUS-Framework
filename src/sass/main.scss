@@ -99,5 +99,7 @@ Trumps are overrides, helpers, utilities. They should only affect
 one piece of DOM at a time and usually carry !important
 */
 @import 
+  "trumps.floats",
+  "trumps.toggles",
   "trumps.visibility",
   "trumps.wrapper-overrides";

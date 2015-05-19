@@ -3,9 +3,11 @@ This project follows Inverted Triangle CSS (ITCSS) by
 Harry "CSS Wizardry" Roberts. Files should be organized
 by groups which are described in detail below. As we go
 down our list of files we should go from:
+
   Generic to explicit
   Far-reaching to localised
   Low specificity to high specificity
+
 */
 
 @charset "UTF-8";
@@ -36,15 +38,16 @@ If your tooling is more complex you can split it up like:
   etc.
 */
 @import 
+  "tools.alerts",
+  "tools.block-grid",
+  "tools.buttons",
+  "tools.centering",
   "tools.clearfix",
   "tools.grid",
-  "tools.ranges",
   "tools.import-once",
-  "tools.block-grid",
+  "tools.ranges",
   "tools.text-hide",
   "tools.text-overflow",
-  "tools.alerts",
-  "tools.buttons",
   "tools.visibility";
 
 /*
@@ -61,14 +64,14 @@ Elements are rules for classless HTML tags.
 There can exist no classes at this layer, only further into our triangle.
 */
 @import 
-  "elements.page",
+  "elements.forms",
   "elements.img",
-  "elements.typography",
   "elements.links",
-  "elements.quote",
   "elements.lists",
+  "elements.page",
+  "elements.quote",
   "elements.tables",
-  "elements.forms";
+  "elements.typography";
 
 /*
 Objects are "formless", in other words invisible to the user, no cosmetics
@@ -77,18 +80,18 @@ This is the first layer of classes and should be agnostically named
   Eg. list-inline, ui-list, etc.
 */
 @import 
-  "objects.wrappers",
+  "objects.block-grid",
   "objects.grid",
-  "objects.block-grid";
+  "objects.wrappers";
 
 /*
 Components are the stuff of UI. Eg. buttons, special titles, etc.
 These get much more explicitly named: eg. products-list, etc.
 */
 @import 
-  "components.lists",
   "components.alerts",
   "components.buttons",
+  "components.lists",
   "components.tables";
 
 /*
@@ -96,5 +99,5 @@ Trumps are overrides, helpers, utilities. They should only affect
 one piece of DOM at a time and usually carry !important
 */
 @import 
-  "trumps.wrapper-overrides",
-  "trumps.visibility";
+  "trumps.visibility",
+  "trumps.wrapper-overrides";

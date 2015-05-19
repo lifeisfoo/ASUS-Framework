@@ -1,0 +1,9 @@
+$include-html-visibility-classes: true !default;
+$include-table-visibility-classes: false !default;
+$include-legacy-visibility-classes: false !default;
+
+// Visibility Breakpoints
+$visibility-breakpoint-sizes:
+  small,
+  medium,
+  large;

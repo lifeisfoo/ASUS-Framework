@@ -1,0 +1,14 @@
+.is-hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+.is-not-hidden {
+  display: inherit !important;
+}
+
+.is-invisible {
+  visibility: hidden !important;
+}
+.is-visible {
+  visibility: inherit !important;
+}

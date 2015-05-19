@@ -77,6 +77,16 @@ Generic rules are project-agnostic.
 These can be copied from any project to the next
 */
 
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 
 /**
@@ -500,16 +510,6 @@ table {
 td,
 th {
 	padding: 0;
-}
-
-html {
-	box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after {
-	box-sizing: inherit;
 }
 
 /*

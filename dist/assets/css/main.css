@@ -43,16 +43,7 @@ If your tooling is more complex you can split it up like:
 .button-warning:hover,
 .button-danger:hover,
 .button:hover {
-	top: 2px;
 	text-decoration: none;
-}
-
-.button-info:active,
-.button-success:active,
-.button-warning:active,
-.button-danger:active,
-.button:active {
-	top: 4px;
 }
 
 .row,
@@ -847,8 +838,8 @@ These get much more explicitly named: eg. products-list, etc.
 
 .button-info {
 	background: #7fdbff;
-	color: #00374c !important;
-	border: 1px solid #00374c;
+	color: #0080b2 !important;
+	border: 1px solid #19beff;
 }
 
 .button-info:hover {
@@ -861,8 +852,8 @@ These get much more explicitly named: eg. products-list, etc.
 
 .button-success {
 	background: #2ecc40;
-	color: black !important;
-	border: 1px solid black;
+	color: #08260c !important;
+	border: 1px solid #1b7926;
 }
 
 .button-success:hover {
@@ -875,8 +866,8 @@ These get much more explicitly named: eg. products-list, etc.
 
 .button-warning {
 	background: #ffdc00;
-	color: black !important;
-	border: 1px solid black;
+	color: #332c00 !important;
+	border: 1px solid #998400;
 }
 
 .button-warning:hover {
@@ -889,8 +880,8 @@ These get much more explicitly named: eg. products-list, etc.
 
 .button-danger {
 	background: #ff4136;
-	color: #030000 !important;
-	border: 1px solid #030000;
+	color: #690600 !important;
+	border: 1px solid #cf0b00;
 }
 
 .button-danger:hover {
@@ -903,8 +894,8 @@ These get much more explicitly named: eg. products-list, etc.
 
 .button {
 	background: #aaaaaa;
-	color: #111111 !important;
-	border: 1px solid #111111;
+	color: #444444 !important;
+	border: 1px solid #777777;
 }
 
 .button:hover {

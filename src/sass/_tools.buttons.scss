@@ -6,11 +6,7 @@
   text-transform: uppercase;
   font-weight: 700;
   &:hover {
-    top: 2px;
     text-decoration: none;
-  }
-  &:active {
-    top: 4px;
   }
 }
 
@@ -18,8 +14,8 @@
   .#{$class} {
     @extend %button-defaults;    
     background: $color;
-    color: darken($color, 60%) !important;
-    border: 1px solid darken($color, 60%);
+    color: darken($color, 40%) !important;
+    border: 1px solid darken($color, 20%);
     &:hover {
       background: darken($color, 10%);
     }

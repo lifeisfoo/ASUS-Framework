@@ -6,8 +6,7 @@ down our list of files we should go from:
   Generic to explicit
   Far-reaching to localised
   Low specificity to high specificity
-
-@charset "UTF-8";
+*/
 
 /*
 Settings store all variables, config switches, etc.
@@ -930,6 +929,81 @@ These get much more explicitly named: eg. products-list, etc.
 	background: #777777;
 }
 
+.table {
+	width: 100%;
+	margin-bottom: 1em;
+}
+
+.table > thead > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > th,
+.table > tbody > tr > td,
+.table > tfoot > tr > th,
+.table > tfoot > tr > td {
+	padding: 8px;
+	vertical-align: top;
+	border-top: 1px solid #c4c4c4;
+}
+
+.table > thead > tr > th {
+	vertical-align: bottom;
+	border-bottom: 2px solid #c4c4c4;
+}
+
+.table > caption + thead > tr:first-child > th,
+.table > caption + thead > tr:first-child > td,
+.table > colgroup + thead > tr:first-child > th,
+.table > colgroup + thead > tr:first-child > td,
+.table > thead:first-child > tr:first-child > th,
+.table > thead:first-child > tr:first-child > td {
+	border-top: 0;
+}
+
+.table > tbody + tbody {
+	border-top: 2px solid #c4c4c4;
+}
+
+.table .table {
+	background-color: white;
+}
+
+.table-condensed > thead > tr > th,
+.table-condensed > thead > tr > td,
+.table-condensed > tbody > tr > th,
+.table-condensed > tbody > tr > td,
+.table-condensed > tfoot > tr > th,
+.table-condensed > tfoot > tr > td {
+	padding: 5px;
+}
+
+.table-bordered {
+	border: 1px solid #c4c4c4;
+}
+
+.table-bordered > thead > tr > th,
+.table-bordered > thead > tr > td,
+.table-bordered > tbody > tr > th,
+.table-bordered > tbody > tr > td,
+.table-bordered > tfoot > tr > th,
+.table-bordered > tfoot > tr > td {
+	border: 1px solid #c4c4c4;
+}
+
+.table-bordered > thead > tr > th,
+.table-bordered > thead > tr > td {
+	border-bottom-width: 2px;
+}
+
+.table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd) > th {
+	background-color: #eaeaea;
+}
+
+.table-hover > tbody > tr:hover > td,
+.table-hover > tbody > tr:hover > th {
+	background-color: #d0d0d0;
+}
+
 /*
 Trumps are overrides, helpers, utilities. They should only affect
 one piece of DOM at a time and usually carry !important
@@ -938,6 +1012,121 @@ one piece of DOM at a time and usually carry !important
 .u-wide-load {
 	margin-left: -15px !important;
 	margin-right: -15px !important;
+}
+
+/* small displays */
+
+/* medium displays */
+
+/* large displays */
+
+/* Orientation targeting */
+
+.show-for-landscape,
+.hide-for-portrait {
+	display: inherit !important;
+}
+
+.hide-for-landscape,
+.show-for-portrait {
+	display: none !important;
+}
+
+/* Specific visibility for tables */
+
+table.hide-for-landscape,
+table.show-for-portrait {
+	display: table;
+}
+
+thead.hide-for-landscape,
+thead.show-for-portrait {
+	display: table-header-group !important;
+}
+
+tbody.hide-for-landscape,
+tbody.show-for-portrait {
+	display: table-row-group !important;
+}
+
+tr.hide-for-landscape,
+tr.show-for-portrait {
+	display: table-row !important;
+}
+
+td.hide-for-landscape,
+td.show-for-portrait,
+th.hide-for-landscape,
+th.show-for-portrait {
+	display: table-cell !important;
+}
+
+/* Touch-enabled device targeting */
+
+.show-for-touch {
+	display: none !important;
+}
+
+.hide-for-touch {
+	display: inherit !important;
+}
+
+.touch .show-for-touch {
+	display: inherit !important;
+}
+
+.touch .hide-for-touch {
+	display: none !important;
+}
+
+/* Specific visibility for tables */
+
+table.hide-for-touch {
+	display: table;
+}
+
+.touch table.show-for-touch {
+	display: table;
+}
+
+thead.hide-for-touch {
+	display: table-header-group !important;
+}
+
+.touch thead.show-for-touch {
+	display: table-header-group !important;
+}
+
+tbody.hide-for-touch {
+	display: table-row-group !important;
+}
+
+.touch tbody.show-for-touch {
+	display: table-row-group !important;
+}
+
+tr.hide-for-touch {
+	display: table-row !important;
+}
+
+.touch tr.show-for-touch {
+	display: table-row !important;
+}
+
+td.hide-for-touch {
+	display: table-cell !important;
+}
+
+.touch td.show-for-touch {
+	display: table-cell !important;
+}
+
+th.hide-for-touch {
+	display: table-cell !important;
+}
+
+.touch th.show-for-touch {
+	display: table-cell !important;
 }
 
 @media only screen {
@@ -1356,6 +1545,110 @@ one piece of DOM at a time and usually carry !important
 
 .small-block-grid-12 > li:nth-of-type(12n+1) {
 	clear: both;
+}
+
+.show-for-small-only,
+.show-for-small-up,
+.hide-for-medium-only,
+.hide-for-medium-up,
+.hide-for-large-only,
+.hide-for-large-up {
+	display: inherit !important;
+}
+
+.hide-for-small-only,
+.hide-for-small-up,
+.show-for-medium-only,
+.show-for-medium-up,
+.show-for-large-only,
+.show-for-large-up {
+	display: none !important;
+}
+
+}
+
+@media only screen and (orientation: landscape) {
+
+.show-for-landscape,
+.hide-for-portrait {
+	display: inherit !important;
+}
+
+.hide-for-landscape,
+.show-for-portrait {
+	display: none !important;
+}
+
+/* Specific visibility for tables */
+
+table.show-for-landscape,
+table.hide-for-portrait {
+	display: table;
+}
+
+thead.show-for-landscape,
+thead.hide-for-portrait {
+	display: table-header-group !important;
+}
+
+tbody.show-for-landscape,
+tbody.hide-for-portrait {
+	display: table-row-group !important;
+}
+
+tr.show-for-landscape,
+tr.hide-for-portrait {
+	display: table-row !important;
+}
+
+td.show-for-landscape,
+td.hide-for-portrait,
+th.show-for-landscape,
+th.hide-for-portrait {
+	display: table-cell !important;
+}
+
+}
+
+@media only screen and (orientation: portrait) {
+
+.show-for-portrait,
+.hide-for-landscape {
+	display: inherit !important;
+}
+
+.hide-for-portrait,
+.show-for-landscape {
+	display: none !important;
+}
+
+/* Specific visibility for tables */
+
+table.show-for-portrait,
+table.hide-for-landscape {
+	display: table;
+}
+
+thead.show-for-portrait,
+thead.hide-for-landscape {
+	display: table-header-group !important;
+}
+
+tbody.show-for-portrait,
+tbody.hide-for-landscape {
+	display: table-row-group !important;
+}
+
+tr.show-for-portrait,
+tr.hide-for-landscape {
+	display: table-row !important;
+}
+
+td.show-for-portrait,
+td.hide-for-landscape,
+th.show-for-portrait,
+th.hide-for-landscape {
+	display: table-cell !important;
 }
 
 }
@@ -1926,6 +2219,24 @@ ol {
 
 .dl-horizontal dd:after {
 	clear: both;
+}
+
+.hide-for-small-only,
+.show-for-small-up,
+.show-for-medium-only,
+.show-for-medium-up,
+.hide-for-large-only,
+.hide-for-large-up {
+	display: inherit !important;
+}
+
+.show-for-small-only,
+.hide-for-small-up,
+.hide-for-medium-only,
+.hide-for-medium-up,
+.show-for-large-only,
+.show-for-large-up {
+	display: none !important;
 }
 
 }
@@ -2502,6 +2813,24 @@ h6 {
 
 .large-block-grid-12 > li:nth-of-type(12n+1) {
 	clear: both;
+}
+
+.hide-for-small-only,
+.show-for-small-up,
+.hide-for-medium-only,
+.show-for-medium-up,
+.show-for-large-only,
+.show-for-large-up {
+	display: inherit !important;
+}
+
+.show-for-small-only,
+.hide-for-small-up,
+.show-for-medium-only,
+.hide-for-medium-up,
+.hide-for-large-only,
+.hide-for-large-up {
+	display: none !important;
 }
 
 }

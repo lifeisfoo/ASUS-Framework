@@ -26,7 +26,7 @@ server.use(express.static(__dirname + '/dist/'));
     
 gulp.task('styles', function() {
   return gulp.src('src/sass/main.scss')
-    .pipe(sass({ style: 'expanded' }))
+    .pipe(sass({ style: 'expanded', bundleExec: true }))
     .pipe(autoprefixer('last 2 versions', 'safari 5', 'ie 8', 'ie 9'))
     //.pipe(uncss({
     //  html: glob.sync('dist/**/*.html'),

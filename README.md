@@ -20,6 +20,7 @@ To begin, you must install the dependencies if you haven't already.
 
 * npm: http://npmjs.org/
 * node.js: http://nodejs.org/download/
+* sass: just run `bundle install` ([bundler is required](http://bundler.io/))
 
 Once npm is installed get your cli up and running and install gulp: `npm install gulp -g`.
 
